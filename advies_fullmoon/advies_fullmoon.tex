@@ -120,6 +120,30 @@
   
     \subsection{Gescheiden werken}
     
+    Doordat iedereen onafhankelijk van elkaar moet kunnen werken aan hetzelfde project is het noodzaak dat het ontwikkelen wordt verplaats van de centrale server naar de workstations van de medewerkers zelf. Iedereen zal dus een kopie van het project gaan draaien op hun eigen computer. Om dit te bewerkstelligen zal het nodig zijn om een webserver te draaien.
+    
+    Bij Fullmoon is de situatie als volgt:
+    
+    \begin{itemize}
+      \item De werknemers draaien Windows XP of Vista.
+      \item Alle websites die worden gemaakt gebruiken Apache \footnote{De websites gebruiken uitsluitend .htaccess bestanden} en PHP.
+    \end{itemize}
+    
+    Er zijn veel applicaties die het mogelijk makken om een webserver te draaien maar door deze specifieke situatie kunnen we het inperken tot een oplossing voor Windows die Apache en PHP ondersteund.
+    
+    Met redelijk veel moeite is het mogelijk om Apache en PHP zelf te installeren op Windows maar voor de Fullmoon werknemers heb ik liever een kant en klare oplossing. Er zijn er een aantal:
+    
+    \begin{itemize}
+      \item Wampserver
+      \item Xampp
+      \item PHPdev
+      \item PHPtriad
+    \end{itemize}
+    
+    Ik heb ze alle vier uitgeprobeerd en PHPdev en PHPtriad vielen gelijk weg, de installatie hiervan is te omslachtig en er komen te veel nutteloze zaken bij. Wampserver en Xampp hebben hierintegen een erg makkelijke installatie en geven je een controlepaneel waarmee je alles voor Apache en PHP kunt regelen. Hiernaast biedt Xampp ook nog de mogelijkheid om Apache met een paar klikken te laten installeren als een service waardoor het altijd beschikbaar is.
+    
+    \paragraph{Xampp werkt naar mijn mening het beste en is erg geschikt voor de medewerkers van Fullmoon.}
+    
     \subsection{Ontwikkelstraat}
     
     \subsection{Database synchronisatie}
