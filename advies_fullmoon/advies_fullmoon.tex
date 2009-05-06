@@ -1,0 +1,99 @@
+\documentclass[12pt,a4paper]{article}
+
+% Number pages on the bottom
+\pagestyle{plain}
+
+% Use Dutch language so we get correct hyphenation
+\usepackage[dutch]{babel}
+\selectlanguage{dutch}
+
+% Use the Palatino font
+\usepackage{palatino}
+
+% Enables fullpage mode, 1 inch margin instead of 2.
+\usepackage{fullpage}
+
+\title{Professionalisering Fullmoon}
+
+\author{Mark Mulder}
+\date{mei 2009}
+
+\begin{document}
+
+% Enables the right ragged environment and indents the paragraph by 0.5 inch
+% \raggedright
+% \parindent=0.5in 
+  
+  \maketitle
+  \pagebreak
+  
+  \tableofcontents  
+  \pagebreak
+  
+  \section{introductie}
+
+  Tijdens mijn stageperiode bij Fullmoon Interactive Solutions kreeg ik in de gaten dat er af en toe wat situaties waren waarbij het samenwerken niet helemaal goed ging. Denk hierbij aan meerdere mensen die aan hetzelfde project bezig waren, en elkaars werk daarbij per ongeluk hadden overgeschreven. Er was niet echt een goed overzicht wie wat deed. Omdat ik hiervoor al ervaring had opgedaan met Source Control Management {\sc (scm)} systemen dacht ik hun hierbij goed te kunnen helpen.
+    
+    Omdat ik toen nog druk bezig met m'n stagewerkzaamheden hadden we besloten om hier een afstudeerproject van te maken. De zaken die ik bij Fullmoon wil verbeteren zijn veel voorkomend, ik weet zeker dat veel Interactieve Media studenten en andere klein tot middelgrote bedrijven hier ook mee te maken hebben. Daarom denk ik dat de vrucht van mijn werkzaamheden bij Fullmoon door vele mensen geplukt kan worden.
+    
+  \section{Eisen professionaliteit}
+
+  Om de huidige situatie in kaart te brengen heb ik een aantal punten opgesteld waar een bedrijf aan moet voldoen om professioneel te kunnen werken. Het gaat hierbij om een klein tot middelgroot bedrijf.
+
+  \begin{enumerate}
+    \item Medewerkers moeten gelijktijdig kunnen samenwerken aan hetzelfde project zonder elkaar hierbij in de weg te zitten.
+    \item Er moet een overzicht zijn van wat er gebeurd. Wie heeft wat aangepast en wanneer, waar is iedereen mee bezig?
+    \item Er moet een goede ontwikkelomgeving zijn, gebaseerd op een OTAP \footnote{Ontwikkel, Test, Acceptatie, Productie} straat.
+    \item Al het gemaakte werk moet goed gebackupped kunnen worden, zowel de productie als development omgevingen. Er moet geen versie van een bestand verloren kunnen gaan en men moet altijd terug kunnen gaan naar een vorige versie van een bestand.
+    \item Klanten moeten in het ontwikkelproces betrokken kunnen worden zodat wijzigingen en dergelijke beoordeeld kunnen worden in een omgeving die los staat van de live omgeving.
+  \end{enumerate}
+
+  \section{Inventarisatie huidige situatie}
+  
+  Bij punt 1 ligt bij Fullmoon grote ruimte tot verbetering. In de tijd dat ik bij hun aan het stagelopen was kwam het vaak voor dat werk van elkaar overschreven werd, waarna het dus verloren was. Als mensen tegelijkertijd aan hetzelfde project bezig waren kwam het vaak voor dat er over en weer geroepen werd om er achter te komen wie er in een bepaald bestand zat te werken. Iedereen werkt direct op de server, dus een bestand kon eigenlijk maar door \'{e}\'{e}n iemand bewerkt worden.
+  
+  Punt 2 is ook niet erg goed aanwezig. Iedereen heeft wel in de gaten wie er verdeeld is over de verschillende projecten maar er is geen goed zicht over wie nou daadwerkelijk wat aan het doen is.
+  
+  Op dit moment is de ontwikkelstraat van Fullmoon erg klein, het gaat van ontwikkeling naar productie. Hierbij werkt iedereen tezamen in de ontwikkelomgeving, waar zoals gemeld, veel problemen door ontstaan. Ook is er bij het updaten van sites vaak onoverzichtelijkheid omdat de persoon soms vergeet wat er allemaal veranderd is.
+  
+  Van databases die op de eigen server van Fullmoon staan wordt er elke nacht een backup gemaakt. Deze worden ook offsite opgeslagen door de hosting provider van Fullmoon, Cyso, die ze een maand lang bewaard. Normale bestanden op de ontwikkelserver worden ook dagelijks op een aparte hardeschijf opgeslagen. Met dagelijkse snapshots is de backup vrij goed geregeld.
+  
+  Voor klanten is het soms gewenst dat zij nieuwe functionaliteit uittesten in hun websites voordat deze live gaan. Op dit moment bestaat deze mogelijkheid nog niet bij Fullmoon. Veranderingen worden eerst lokaal gedaan waarna ze in \'{e}\'{e}n keer online gaan. De klant (samen met de bezoekers) test deze veranderingen dus op de live omgeving.
+
+  \section{Eisen en wensen}
+  
+  Samen met Fullmoon ben ik op de volgende eisen en wensen gekomen. Deze zien ze graag ingevoerd worden naast de adviezen die ik nog aandraag.
+  
+    \subsection{Eisen}
+    
+    \begin{itemize}
+      \item De nieuwe situatie moet voor iedereen te begrijpen zijn.
+      \item Er moeten niet al te ingrijpende veranderingen komen in de al bestaande workflow.
+    \end{itemize}
+    
+    \subsection{Wensen}
+    
+    \begin{itemize}
+      \item Een ticketsysteem waarin bugs en featurerequests komen en waarin werknemers hun uren die ze aan verschillende projecten besteden goed kunnen bijhouden.
+      \item Een makkelijk synchronisatieproces tussen live en development databases zodat lokaal met live gegevens gewerkt kunnen worden.
+    \end{itemize}
+  
+  \section{Wat moet er veranderen}
+  
+  Er zijn een aantal hoofdzaken die verbeterd moeten worden, namelijk; het gelijktijdig kunnen samenwerken en het ontwikkelproces.
+  
+  Hier onder volgen mijn adviezen om de gewenste verbeteringen hierin te kunnen verwezenlijken.
+  
+  \begin{enumerate}
+    \item Gebruik maken van een {\sc scm} systeem. Dit faciliteert gelijktijdig het beter kunnen 
+    samenwerken en zorgt ervoor dat er een historie aanwezig is van veranderingen in bestanden. Om een 
+    goed overzicht te krijgen van wat iedereen doet is dit ook een onmisbaar onderdeel.
+    \item Het daadwerkelijke ontwikkelen verplaatsen van de centrale server waar iedereen tegelijkertijd op werkt naar de workstations van de medewerkers. In samenwerking met het {\sc scm} systeem kan iedereen wel onafhankelijk van elkaar werken aan hetzelfde project.
+    \item Een ontwikkelstraat in gebruik nemen zodat het huidige tweeledige proces van ontwikkeling $\to$ productie veranderd in een uitgebreidere versie. Naast de voordelen die dit bied voor samenwerken kan ook de klant deelnemen aan het proces door wijzigingen uit te testen in de acceptatie omgeving alvorens deze online gezet worden.
+    \item Het synchroniseren van verschillende databases moet makkelijker worden. Hiermee bedoel ik dat de lokale ontwikkel omgeving kan werken met data uit de livedatabase. Het werken met live data biedt erg veel voordelen en hierdoor kan je problemen oplossen waar je anders niet tegenaan gelopen was. Daarnaast wil ik aanraden om de databases ook zelf offsite te bewaren, om een nog hogere mate van veiligheid en onafhankelijkheid te cre\"{e}ren.
+    \item Het updaten van sites moet geautomatiseerd worden, om fouten die ontstaan tijdens het handmatig updaten hiervan uit de weg te kunnen gaan.
+  \end{enumerate}
+  
+  \section{Conclusie}
+
+\end{document}
