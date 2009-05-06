@@ -162,11 +162,21 @@
       \item \textbf{Productie} is op de live server.
     \end{itemize}
     
-    \paragraph{Fullmoon zal gebruik maken van een {\sc ot(a)p} straat.}
+    \paragraph{Fullmoon zal gebruik maken van een {\sc ot(a)p} straat om de kwaliteit van het werk te waarborgen tijdens het ontwikkelingsproces en de inspraak van klanten te vergemakkelijken.}
     
     \subsection{Database synchronisatie en backup}
     
+    Het werken met live data biedt erg veel voordelen tijdens het ontwikkelen, zo kan je situaties ontdekken waar je anders niet tegenaan gelopen was, denk bijvoorbeeld aan paginatie die niet werkt als er meer dan 20 items zijn. 
     
+    Er zijn een aantal manieren om dit te kunnen bereiken:
+    
+    \begin{enumerate}
+      \item Een master-slave setup waarbij de lokale development server die de database huisvest een slave is van de live (master) database.\footnote{http://dev.mysql.com/doc/refman/5.1/en/replication.html}
+      \item Een script gebaseerd op \emph{mysqldump}\footnote{http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html} die een dump maakt van bepaalde tabellen die vervolgens op de development database ingeladen kunnen worden.
+      \item Gebruik maken van een programma die tussen twee databases kan synchroniseren.
+    \end{enumerate}
+    
+    Van deze drie oplossingen past nummer drie naar mijn mening het beste in de situatie van Fullmoon. Een master-slave is een mooie oplossing maar dit staat het 
     
     \subsection{Updaten van websites}
   
