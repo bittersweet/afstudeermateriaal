@@ -94,6 +94,36 @@
     \item Het updaten van sites moet geautomatiseerd worden, om fouten die ontstaan tijdens het handmatig updaten hiervan uit de weg te kunnen gaan.
   \end{enumerate}
   
+  \section{Advies}
+
+  Wat volgt is een onderzoek naar deze adviespunten en hieruit zal ik naar mijn mening de beste optie voor Fullmoon naar voren laten komen.
+  
+    \subsection{SCM Systeem}
+    
+    Tegenwoordig zijn er heel veel {\sc scm} systemen om uit te kiezen. Een kleine greep uit het aanbod: \emph{CVS, Subversion, Git, Mercurial} en \emph{Bazaar}.
+    
+    Al deze systemen bieden veel voordeel voor Fullmoon. Het opslaan van verschillende versies van bestanden tijdens het ontwikkelproces is van onmisbaar belang. Het biedt erg veel veiligheid want als er bijvoorbeeld iets fout gaat kan er makkelijk terug gegaan worden naar een vorige (wel werkende) versie. Ook zorgt het er voor dat er beter samengewerkt kan worden. Dit werkt op verschillende manieren:
+    
+    \begin{enumerate}
+      \item \textbf{Lock-Modify-Unlock} Als iemand een bestand aan het bewerken is wordt deze gelocked zodat andere mensen dit bestand niet kunnen aanpassen.
+      \item \textbf{Copy-Modify-Merge} Hierbij werkt iedereen op zijn of haar eigen versie van een bestand waarna de eventuele wijzigingen van andere developers hierin kunnen worden gemerged. 
+    \end{enumerate}
+    
+     Een ander voordeel is dat het experimentatie bevorderd. omdat het weinig moeite kost om te schakelen tussen verschillende versies is het ``goedkoop`` om dingen uit te proberen.
+    
+    
+  
+    \subsection{Gescheiden werken}
+    
+    \subsection{Ontwikkelstraat}
+    
+    \subsection{Database synchronisatie}
+    
+    \subsection{Updaten van websites}
+  
+  
+  
+  
   \section{Conclusie}
 
 \end{document}
