@@ -90,7 +90,7 @@
     goed overzicht te krijgen van wat iedereen doet is dit ook een onmisbaar onderdeel.
     \item Het daadwerkelijke ontwikkelen verplaatsen van de centrale server waar iedereen tegelijkertijd op werkt naar de workstations van de medewerkers. In samenwerking met het {\sc scm} systeem kan iedereen wel onafhankelijk van elkaar werken aan hetzelfde project.
     \item Een ontwikkelstraat in gebruik nemen zodat het huidige tweeledige proces van ontwikkeling $\to$ productie veranderd in een uitgebreidere versie. Naast de voordelen die dit bied voor samenwerken kan ook de klant deelnemen aan het proces door wijzigingen uit te testen in de acceptatie omgeving alvorens deze online gezet worden.
-    \item Het synchroniseren van verschillende databases moet makkelijker worden. Hiermee bedoel ik dat de lokale ontwikkel omgeving kan werken met data uit de livedatabase. Het werken met live data biedt erg veel voordelen en hierdoor kan je problemen oplossen waar je anders niet tegenaan gelopen was. Daarnaast wil ik aanraden om de databases ook zelf offsite te bewaren, om een nog hogere mate van veiligheid en onafhankelijkheid te cre\"{e}ren.
+    \item Het synchroniseren van verschillende databases moet makkelijker worden. Hiermee bedoel ik dat de lokale ontwikkel omgeving kan werken met data uit de live database. Het werken met live data biedt erg veel voordelen en hierdoor kan je problemen oplossen waar je anders niet tegenaan gelopen was. Daarnaast wil ik aanraden om de databases ook zelf offsite te bewaren, om een nog hogere mate van veiligheid en onafhankelijkheid te cre\"{e}ren.
     \item Het updaten van sites moet geautomatiseerd worden, om fouten die ontstaan tijdens het handmatig updaten hiervan uit de weg te kunnen gaan.
   \end{enumerate}
   
@@ -117,7 +117,6 @@
     
     \paragraph{Naar mijn mening is CVS echt een \emph{legacy} systeem en is het niet flexibel genoeg om te gebruiken in een hedendaags webdevelopment-bedrijf, daarom wil ik Fullmoon het advies geven om Subversion te gebruiken.}
     
-  
     \subsection{Gescheiden werken}
     
     Doordat iedereen onafhankelijk van elkaar moet kunnen werken aan hetzelfde project is het noodzaak dat het ontwikkelen wordt verplaats van de centrale server naar de workstations van de medewerkers zelf. Iedereen zal dus een kopie van het project gaan draaien op hun eigen computer. Om dit te bewerkstelligen zal het nodig zijn om een webserver te draaien.
@@ -146,13 +145,24 @@
     
     \subsection{Ontwikkelstraat}
     
-    \subsection{Database synchronisatie}
+    
+    
+    \subsection{Database synchronisatie en backup}
+    
+    
     
     \subsection{Updaten van websites}
   
-  
-  
-  
+    Om het updaten van websites te automatiseren zijn er een aantal mogelijkheden. 
+    
+    \begin{enumerate}
+      \item Een script schrijven gebaseerd op {\sc rsync} die bestanden van de ontwikkelserver upload.
+      \item Gebruik maken van het {\sc scm} systeem.
+    \end{enumerate}
+    
+    Rsync maakt het makkelijk om bestanden op verschillende servers te synchroniseren maar mijn voorkeur ligt bij de tweede optie, deze is krachtiger in te stellen.
+    {\sc smc} systemen maken het mogelijk om een versie van bestanden in de repository een \textbf{tag} te geven, bijvoorbeeld ``versie 0.8''. Hierna kan je de live server de opdracht geven om te synchroniseren en alles vanaf deze tag te draaien. Dit geeft als voordeel dat je gemakkelijk kunt zien welke versie een website draait en dat je gemakkelijk terug kunt gaan naar een voorlopende versie.
+    
   \section{Conclusie}
 
 \end{document}
