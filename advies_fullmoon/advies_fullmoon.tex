@@ -109,8 +109,13 @@
       \item \textbf{Copy-Modify-Merge} Hierbij werkt iedereen op zijn of haar eigen versie van een bestand waarna de eventuele wijzigingen van andere developers hierin kunnen worden gemerged. 
     \end{enumerate}
     
-     Een ander voordeel is dat het experimentatie bevorderd. omdat het weinig moeite kost om te schakelen tussen verschillende versies is het ``goedkoop`` om dingen uit te proberen.
+    Hiernaast biedt een {\sc scm} systeem de mogelijkheid om te \textbf{branchen} (als het ware een nieuwe tak aanmaken gebaseerd op de huidige sourcecode). Hierbij kan je wijzigingen aanbrengen in een aparte versie zodat de \textbf{trunk} (hoofd branch) van je code altijd stabiel blijft. Nadat de wijzigingen zijn getest kunnen ze in de stabiele versie worden ge\"{i}ntegreerd. Dit bevorderd ook experimentatie, omdat het weinig moeite kost om te schakelen tussen verschillende versies is het ``goedkoop'' om dingen uit te proberen.
     
+    Alle genoemde systemen bieden deze mogelijkheden, dus de keuze hangt af van andere variabelen. Zo was het uitgangspunt dat de nieuwe situatie voor iedereen te begrijpen moest zijn, het werken met {\sc scm} moet dus niet al te moeilijk worden. CVS en Subversion bestaan het langste en hier zijn erg goede grafische tools voor. Dit ontbreekt nog bij de andere genoemde systemen en om hier mee te kunnen werken is het vaak een commandline aangelegenheid. Dit gaat te technisch worden voor veel medewerkers dus ligt de keuze tussen CVS en Subversion.
+    
+    Door nader onderzoek ben ik er achter gekomen dat CVS een aantal nadelen heeft ten opzichte van Subversion. Zo is het erg langzaam, zowel bij tagging als branching en is het erg moeilijk om bestanden te hernoemen of te verplaatsen. Er is ook geen goede ondersteuning voor binaire file formaten. Een van de grootste problemen is nog wel dat ``atomic comits'' niet worden ondersteund,  het in \"{e}\"{e}n keer versturen van wijzigingen naar de server. Als de update niet slaagt door bijvoorbeeld een netwerkstoring wordt de commit afgebroken. CVS Verstuurd alle bestanden apart waardoor je geen garantie hebt dat alles goed bij de repository overkomt waarna deze misschien in een onstabiele staat zal verkeren.
+    
+    \paragraph{Naar mijn mening is CVS echt een \emph{legacy} systeem en is het niet flexibel genoeg om te gebruiken in een hedendaags webdevelopment-bedrijf, daarom wil ik Fullmoon het advies geven om Subversion te gebruiken.}
     
   
     \subsection{Gescheiden werken}
