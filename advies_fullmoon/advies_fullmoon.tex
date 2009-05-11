@@ -160,14 +160,14 @@
       Een programmeur of ontwerper werkt aan een website in een ontwikkelomgeving, als hij klaar is met zijn werk wordt het doorgestuurd naar de Test omgeving. Daar wordt getest of het allemaal werkt zoals het zou moeten en als dat zo is gaat het verder naar de Acceptatie omgeving. Dit is een omgeving waarin de klant wordt betrokken, deze kan dan beoordelen of er aan zijn wensen en eisen is voldaan. Indien dit allemaal wordt goedgekeurd volgt de laatste stap, de Productie omgeving.
     \end{quote}
     
-    Voor Fullmoon wil ik een vorm van de {\sc otap} straat invoeren. Het zal meer op een {\sc otp} straat lijken aangezien niet elke klant betrokken hoeft te worden in het ontwikkelproces. Voor websites waar een kleine wijziging op uitgevoerd moet worden is het namelijk niet nodig en is het afdoende dat het intern getest wordt.
+    Voor Fullmoon wil ik een vorm van de {\sc otap} straat invoeren. Het zal meer op een {\sc otp} straat lijken aangezien Fullmoon heeft aangegeven dat niet elke klant betrokken hoeft te worden in het ontwikkelproces. Voor websites waar een kleine wijziging op uitgevoerd moet worden is het namelijk niet nodig en is het afdoende dat het intern getest wordt.
     
     De situatie zal er als volgt uit gaan zien:
     
     \begin{itemize}
       \item \textbf{Ontwikkeling} gebeurd bij de werknemers op hun eigen computer.
       \item \textbf{Testen} zal gebeuren op de repository server waar altijd de laatste versie draait van een website.
-      \item \textbf{Acceptatie} vind ook hier op plaats, we kunnen een site hosten gebaseerd op een \emph{tag} of \emph{branch} welke de klant kan bezoeken.
+      \item \textbf{Acceptatie} vind ook hier op plaats, er kan een site gehost worden gebaseerd op een specifieke \emph{tag} of \emph{branch} welke de klant kan bezoeken. Hierdoor kan Fullmoon door blijven developen terwijl de klant toch naar \'{e}\'{e}n specifieke versie van de site kan kijken.
       \item \textbf{Productie} is op de live server.
     \end{itemize}
     
@@ -189,6 +189,10 @@
     
     Daarom lijkt mij optie drie de beste oplossing. Met een programma als Navicat \footnote{ http://www.navicat.com/html/} of EMS DB Comparer \footnote{ http://www.sqlmanager.net/en/products/mysql/dbcomparer} kan je twee databases met elkaar vergelijken en de wijzigingen die je wilt doorvoeren selecteren.
     
+    Van deze twee producten ligt mijn voorkeur bij Navicat, dit is eigenlijk een volledig database administratiepakket. Dat biedt als voordeel dat Fullmoon niet veel verschillende programma's naast elkaar hoeft te draaien.
+    
+    \paragraph{Ik wil Fullmoon aanraden om gebruik te maken van een database synchroniseer programma als Navicat om zelf tijdens het developen recente content op te halen van de live database.}
+    
     \subsection{Updaten van websites}
   
     Om het updaten van websites te automatiseren zijn er een aantal mogelijkheden. 
@@ -202,5 +206,7 @@
     {\sc smc} systemen maken het mogelijk om een versie van bestanden in de repository een \emph{tag} te geven, bijvoorbeeld ``versie 0.8''. Hierna kan je de live server de opdracht geven om te synchroniseren en alles vanaf deze tag te draaien. Dit geeft als voordeel dat je gemakkelijk kunt zien welke versie een website draait en dat je gemakkelijk terug kunt gaan naar een voorlopende versie.
     
   \section{Conclusie}
+  
+  Op basis van dit document wil ik deze wijzigingen doorvoeren binnen Fullmoon. Ik denk dat de mate van professionaliteit binnen de workflow erg zal verbeteren. De meest rigoureuze verandering voor de medewerkers zal het gebruik van een {\sc scm} systeem zijn maar als ze hier eenmaal aan gewend zijn geraakt voorspel ik dat het fijn werken is. Ik heb namelijk zelf gemerkt dat het erg motiverend is als je kan terugzien hoeveel je gedaan hebt!
 
 \end{document}
