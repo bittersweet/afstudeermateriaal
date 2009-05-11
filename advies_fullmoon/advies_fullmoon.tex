@@ -30,7 +30,7 @@
   \tableofcontents  
   \pagebreak
   
-  \section{introductie}
+  \section{Introductie}
 
   Tijdens mijn stageperiode bij Fullmoon Interactive Solutions kreeg ik in de gaten dat er af en toe wat situaties waren waarbij het samenwerken niet helemaal goed ging. Denk hierbij aan meerdere mensen die aan hetzelfde project bezig waren, en elkaars werk daarbij per ongeluk hadden overgeschreven. Er was niet echt een goed overzicht wie wat deed. Omdat ik hiervoor al ervaring had opgedaan met Source Control Management {\sc (scm)} systemen dacht ik hun hierbij goed te kunnen helpen.
     
@@ -113,7 +113,16 @@
     
     Alle genoemde systemen bieden deze mogelijkheden, dus de keuze hangt af van andere variabelen. Zo was het uitgangspunt dat de nieuwe situatie voor iedereen te begrijpen moest zijn, het werken met {\sc scm} moet dus niet al te moeilijk worden. CVS en Subversion bestaan het langste en hier zijn erg goede grafische tools voor. Dit ontbreekt nog bij de andere genoemde systemen en om hier mee te kunnen werken is het vaak een commandline aangelegenheid. Dit gaat te technisch worden voor veel medewerkers dus ligt de keuze tussen CVS en Subversion.
     
-    Door nader onderzoek ben ik er achter gekomen dat CVS een aantal nadelen heeft ten opzichte van Subversion. Zo is het erg langzaam, zowel bij tagging als branching en is het erg moeilijk om bestanden te hernoemen of te verplaatsen. Er is ook geen goede ondersteuning voor binaire file formaten. Een van de grootste problemen is nog wel dat ``atomic comits'' niet worden ondersteund,  het in \"{e}\"{e}n keer versturen van wijzigingen naar de server. Als de update niet slaagt door bijvoorbeeld een netwerkstoring wordt de commit afgebroken. CVS verstuurd alle bestanden apart waardoor je geen garantie hebt dat alles goed bij de repository overkomt waarna deze misschien in een onstabiele staat zal verkeren.
+    Door nader onderzoek ben ik er achter gekomen dat CVS een aantal nadelen heeft ten opzichte van Subversion, die zijn als volgt:
+    
+    \begin{itemize}
+      \item Geen besef van changesets, wijzigingen zijn altijd per file.
+      \item Alle operaties duren een stuk langer, wat fijn werken in de weg staat. Tagging of branching kan een erg lange tijd in beslag nemen.
+      \item Je kan files of directories niet verplaatsen of kopi\"{e}ren.
+      \item Geen goede ondersteuning voor binaire bestandsformaten.
+      \item Je kan geen permissies toewijzen op de repository.
+      \item Geen ``atomic commits'', het in \'{e}\'{e}n keer versturen van alle wijzigingen naar de server. Als de update niet slaagt door bijvoorbeeld een netwerkstoring wordt de commit afgebroken. CVS verstuurd alle bestanden apart waardoor je geen garantie hebt dat alles goed bij de repository overkomt waarna deze misschien in een onstabiele staat zal verkeren.
+    \end{itemize}
     
     \paragraph{Naar mijn mening is CVS echt een \emph{legacy} systeem en is het niet flexibel genoeg om te gebruiken in een hedendaags webdevelopment-bedrijf, daarom wil ik Fullmoon het advies geven om Subversion te gebruiken.}
     
@@ -171,12 +180,14 @@
     Er zijn een aantal manieren om dit te kunnen bereiken:
     
     \begin{enumerate}
-      \item Een master-slave setup waarbij de lokale development server die de database huisvest een slave is van de live (master) database.\footnote{http://dev.mysql.com/doc/refman/5.1/en/replication.html}
-      \item Een script gebaseerd op \emph{mysqldump}\footnote{http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html} die een dump maakt van bepaalde tabellen die vervolgens op de development database ingeladen kunnen worden.
+      \item Een master-slave setup waarbij de lokale development server die de database huisvest een slave is van de live (master) database.\footnote{ http://dev.mysql.com/doc/refman/5.1/en/replication.html}
+      \item Een script gebaseerd op \emph{mysqldump}\footnote{ http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html} die een dump maakt van bepaalde tabellen die vervolgens op de development database ingeladen kunnen worden.
       \item Gebruik maken van een programma die tussen twee databases kan synchroniseren.
     \end{enumerate}
     
-    Van deze drie oplossingen past nummer drie naar mijn mening het beste in de situatie van Fullmoon. Een master-slave is een mooie oplossing maar dit staat het 
+    Van deze drie oplossingen past nummer drie naar mijn mening het beste in de situatie van Fullmoon. Een master-slave is in principe de mooiste manier om lokaal met live gegevens te werken maar als je gaat synchroniseren raak je lokale wijzigingen kwijt. Dat probleem bestaat ook bij oplossing twee. Het {\sc cms} pakket van Fullmoon heeft een aantal tabellen waar alle pagina informatie in staat, als je die overschrijft met data van een andere database ben je de al gemaakte pagina's kwijt.
+    
+    Daarom lijkt mij optie drie de beste oplossing. Met een programma als Navicat \footnote{ http://www.navicat.com/html/} of EMS DB Comparer \footnote{ http://www.sqlmanager.net/en/products/mysql/dbcomparer} kan je twee databases met elkaar vergelijken en de wijzigingen die je wilt doorvoeren selecteren.
     
     \subsection{Updaten van websites}
   
