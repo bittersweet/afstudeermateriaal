@@ -112,9 +112,11 @@
       \item \textbf{Copy-Modify-Merge} Hierbij werkt iedereen op zijn of haar eigen versie van een bestand waarna de eventuele wijzigingen van andere developers hierin kunnen worden gemerged. 
     \end{enumerate}
     
+    De tweede manier werkt het beste als je meer medewerkers hebt. Iedereen kan door werken ook al is er al iemand anders bezig aan hetzelfde bestand.
+    
     Hiernaast biedt een {\sc scm} systeem de mogelijkheid om te \emph{branchen} (als het ware een nieuwe tak aanmaken gebaseerd op de huidige sourcecode). Hierbij kan je wijzigingen aanbrengen in een aparte versie zodat de \emph{trunk} (hoofd branch) van je code altijd stabiel blijft. Nadat de wijzigingen zijn getest kunnen ze in de stabiele versie worden ge\"{i}ntegreerd. Dit bevorderd ook experimentatie, omdat het weinig moeite kost om te schakelen tussen verschillende versies is het ``goedkoop'' om dingen uit te proberen.
     
-    Alle genoemde systemen bieden deze mogelijkheden, dus de keuze hangt af van andere variabelen. Zo was het uitgangspunt dat de nieuwe situatie voor iedereen te begrijpen moest zijn, het werken met {\sc scm} moet dus niet al te moeilijk worden. CVS en Subversion bestaan het langste en hier zijn erg goede grafische tools voor. Dit ontbreekt nog bij de andere genoemde systemen en om hier mee te kunnen werken is het vaak een commandline aangelegenheid. Dit gaat te technisch worden voor veel medewerkers dus ligt de keuze tussen CVS en Subversion.
+    Bijna alle genoemde systemen bieden deze mogelijkheden, dus de keuze hangt af van andere variabelen. Zo was het uitgangspunt dat de nieuwe situatie voor iedereen te begrijpen moest zijn, het werken met {\sc scm} moet dus niet al te moeilijk worden. CVS en Subversion bestaan het langste en hier zijn erg goede grafische tools voor. Dit ontbreekt nog bij de andere genoemde systemen en om hier mee te kunnen werken is het vaak een commandline aangelegenheid. Dit gaat te technisch worden voor veel medewerkers dus ligt de keuze tussen CVS en Subversion.
     
     Door nader onderzoek ben ik er achter gekomen dat CVS een aantal nadelen heeft ten opzichte van Subversion, die zijn als volgt:
     
@@ -127,7 +129,7 @@
       \item Geen ``atomic commits'', het in \'{e}\'{e}n keer versturen van alle wijzigingen naar de server. Als de update niet slaagt door bijvoorbeeld een netwerkstoring wordt de commit afgebroken. CVS verstuurd alle bestanden apart waardoor je geen garantie hebt dat alles goed bij de repository overkomt waarna deze misschien in een onstabiele staat zal verkeren.
     \end{itemize}
     
-    \paragraph{Naar mijn mening is CVS echt een \emph{legacy} systeem en is het niet flexibel genoeg om te gebruiken in een hedendaags webdevelopment-bedrijf, daarom wil ik Fullmoon het advies geven om Subversion te gebruiken.}
+    \paragraph{Naar mijn mening is CVS echt een \emph{legacy} systeem en biedt het niet alle mogelijkheden die een hedendaags webdevelopment-bedrijf nodig heeft, daarom wil ik Fullmoon het advies geven om Subversion te gebruiken.}
     
     \subsection{Gescheiden werken}
     
