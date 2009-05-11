@@ -34,7 +34,10 @@
 
   Tijdens mijn stageperiode bij Fullmoon Interactive Solutions kreeg ik in de gaten dat er af en toe wat situaties waren waarbij het samenwerken niet helemaal goed ging. Denk hierbij aan meerdere mensen die aan hetzelfde project bezig waren, en elkaars werk daarbij per ongeluk hadden overgeschreven. Er was niet echt een goed overzicht wie wat deed. Omdat ik hiervoor al ervaring had opgedaan met Source Control Management {\sc (scm)} systemen dacht ik hun hierbij goed te kunnen helpen.
     
-    Omdat ik toen nog druk bezig met m'n stagewerkzaamheden hadden we besloten om hier een afstudeerproject van te maken. De zaken die ik bij Fullmoon wil verbeteren zijn veel voorkomend, ik weet zeker dat veel Interactieve Media studenten en andere klein tot middelgrote bedrijven hier ook mee te maken hebben. Daarom denk ik dat de vrucht van mijn werkzaamheden bij Fullmoon door vele mensen geplukt kan worden.
+    Omdat ik toen nog druk bezig met m'n stagewerkzaamheden hadden we besloten om hier een afstudeerproject van te maken. De zaken die ik bij Fullmoon wil verbeteren zijn veel voorkomend, ik weet zeker dat veel Interactieve Media studenten en andere klein tot middelgrote bedrijven hier ook mee te maken hebben. 
+    
+    Daarom ga ik in navolging van dit document, waar ik in ga op de specifieke situatie bij Fullmoon een ander document opstellen waarin globale adviezen en oplossingen staan. Hierdoor kunnen veel mensen van mijn werk bij Fullmoon profiteren.
+    
     
   \section{Eisen professionaliteit}
 
@@ -175,7 +178,7 @@
     
     \subsection{Database synchronisatie en backup}
     
-    \subsubsection{Database synchronisatie}
+    \subsubsection{Synchronisatie}
     
     Het werken met live data biedt erg veel voordelen tijdens het ontwikkelen, zo kan je situaties ontdekken waar je anders niet tegenaan gelopen was, denk bijvoorbeeld aan paginatie die niet werkt als er meer dan 20 items zijn. 
     
@@ -195,18 +198,20 @@
     
     \paragraph{Ik wil Fullmoon aanraden om gebruik te maken van een database synchroniseer programma als Navicat om zelf tijdens het developen recente content op te halen van de live database.}
     
-    \subsubsection{Database backup}
+    \subsubsection{Backup}
     
     De databases worden al goed gebackupped door Fullmoon's hosting provider, maar om onafhankelijk van hun te kunnen opereren en zodat je niet op hun hoeft te wachten mocht je een (oudere) backup terug willen halen lijkt het me goed om hier zelf ook in te voorzien.
     
-    Je kan natuurlijk alle backups opslaan op een eigen computer of op de development server maar het veiligste is als je dit offsite bewaard. Er zijn tegenwoordig veel bedrijven waarbij je backups kunt opslaan die opereren op het \emph{pay for what you use} principe, waardoor het erg kosteffectief is. Hierni is Amazon Simple Storage Service (S3) de grootste en meest gebruikte. Omdat S3 de beste tools beschikbaar heeft wil ik de oplossing hier graag op baseren. Op het moment van schrijven zijn er al een aantal goede, ik kan er twee aanraden.
+    Je kan natuurlijk alle backups opslaan op een eigen computer of op de development server maar het veiligste is als je dit offsite bewaard. Er zijn tegenwoordig veel bedrijven waarbij je backups kunt opslaan die opereren op het \emph{pay for what you use} principe, waardoor het erg kosteffectief is. Hierin is Amazon Simple Storage Service (S3) de grootste en meest gebruikte. Omdat S3 de beste tools beschikbaar heeft wil ik mijn advies hier graag op baseren. Op het moment van schrijven zijn er al een aantal goede, ik kan er twee aanraden.
         
     \begin{itemize}
-      \item Tarsnap http://www.tarsnap.com/ Een betaalde oplossing die zich op dit moment in een publieke beta fase bevindt. Het grote voordeel van Tarsnap is dat het incremental backups opslaat (alleen hetgene wat veranderd is ten opzichte van de vorige backup) waardoor de backups niet groot hoeven te zijn.
-      \item s3sync http://s3sync.net/wiki Een Ruby library waarmee je zelf een backupscript kunt schrijven.
+      \item \textbf{Tarsnap} (http://www.tarsnap.com) Een betaalde oplossing die zich op dit moment in een publieke beta fase bevindt. Het grote voordeel van Tarsnap is dat het incremental backups opslaat (alleen hetgene wat veranderd is ten opzichte van de vorige backup) waardoor de backups niet groot hoeven te zijn.
+      \item \textbf{s3sync} (http://s3sync.net/wiki) Een Ruby library waarmee je zelf een backupscript kunt schrijven.
     \end{itemize}
     
-    Tarsnap is een prachtige oplossing maar in Fullmoon's geval worden de backups per nacht aangeleverd in een gecomprimeerd bestand waardoor er geen mogelijkheid is voor incremental backups. S3sync zal daarom de beste optie zijn. 
+    Tarsnap is een prachtige oplossing maar in Fullmoon's geval worden de backups per nacht aangeleverd in een gecomprimeerd bestand waardoor er geen mogelijkheid is voor incremental backups. Een backup-script gebaseerd op S3sync zal daarom de beste optie zijn.
+    
+    \paragraph{Naar mijn idee kan Fullmoon het beste ook zelf de database backups opslaan, zodat ze niet afhankelijk zijn van hun hosting provider. Een backup-script wat gebruik maakt van s3sync zal hiervoor de beste oplossing zijn.}
     
     \subsection{Updaten van websites}
   
@@ -218,7 +223,7 @@
     \end{enumerate}
     
     Rsync maakt het makkelijk om bestanden op verschillende servers te synchroniseren maar mijn voorkeur ligt bij de tweede optie, deze is krachtiger in te stellen.
-    {\sc smc} systemen maken het mogelijk om een versie van bestanden in de repository een \emph{tag} te geven, bijvoorbeeld ``versie 0.8''. Hierna kan je de live server de opdracht geven om te synchroniseren en alles vanaf deze tag te draaien. Dit geeft als voordeel dat je gemakkelijk kunt zien welke versie een website draait en dat je gemakkelijk terug kunt gaan naar een voorlopende versie.
+    {\sc scm} systemen maken het mogelijk om een versie van bestanden in de repository een \emph{tag} te geven, bijvoorbeeld ``versie 0.8''. Hierna kan je de live server de opdracht geven om te synchroniseren en alles vanaf deze tag te draaien. Dit geeft als voordeel dat je gemakkelijk kunt zien welke versie een website draait en dat je gemakkelijk terug kunt gaan naar een voorlopende versie.
     
   \section{Conclusie}
   
@@ -226,6 +231,6 @@
 
   De meest rigoureuze verandering voor de medewerkers zal het gebruik van een {\sc scm} systeem zijn maar als ze hier eenmaal aan gewend zijn geraakt voorspel ik dat het fijn werken is. Ik heb namelijk zelf gemerkt dat het erg motiverend is als je kan terugzien hoeveel je gedaan hebt!
   
-  Ik heb er vertrouwen in dat de situatie bij Fullmoon zal verbeteren.
+  Ik heb er vertrouwen in dat de situatie bij Fullmoon zal verbeteren en ik ben blij dat ik hun hierbij mag helpen.
 
 \end{document}
