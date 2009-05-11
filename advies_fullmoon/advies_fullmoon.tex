@@ -175,6 +175,8 @@
     
     \subsection{Database synchronisatie en backup}
     
+    \subsubsection{Database synchronisatie}
+    
     Het werken met live data biedt erg veel voordelen tijdens het ontwikkelen, zo kan je situaties ontdekken waar je anders niet tegenaan gelopen was, denk bijvoorbeeld aan paginatie die niet werkt als er meer dan 20 items zijn. 
     
     Er zijn een aantal manieren om dit te kunnen bereiken:
@@ -193,6 +195,19 @@
     
     \paragraph{Ik wil Fullmoon aanraden om gebruik te maken van een database synchroniseer programma als Navicat om zelf tijdens het developen recente content op te halen van de live database.}
     
+    \subsubsection{Database backup}
+    
+    De databases worden al goed gebackupped door Fullmoon's hosting provider, maar om onafhankelijk van hun te kunnen opereren en zodat je niet op hun hoeft te wachten mocht je een (oudere) backup terug willen halen lijkt het me goed om hier zelf ook in te voorzien.
+    
+    Je kan natuurlijk alle backups opslaan op een eigen computer of op de development server maar het veiligste is als je dit offsite bewaard. Er zijn tegenwoordig veel bedrijven waarbij je backups kunt opslaan die opereren op het \emph{pay for what you use} principe, waardoor het erg kosteffectief is. Hierni is Amazon Simple Storage Service (S3) de grootste en meest gebruikte. Omdat S3 de beste tools beschikbaar heeft wil ik de oplossing hier graag op baseren. Op het moment van schrijven zijn er al een aantal goede, ik kan er twee aanraden.
+        
+    \begin{itemize}
+      \item Tarsnap http://www.tarsnap.com/ Een betaalde oplossing die zich op dit moment in een publieke beta fase bevindt. Het grote voordeel van Tarsnap is dat het incremental backups opslaat (alleen hetgene wat veranderd is ten opzichte van de vorige backup) waardoor de backups niet groot hoeven te zijn.
+      \item s3sync http://s3sync.net/wiki Een Ruby library waarmee je zelf een backupscript kunt schrijven.
+    \end{itemize}
+    
+    Tarsnap is een prachtige oplossing maar in Fullmoon's geval worden de backups per nacht aangeleverd in een gecomprimeerd bestand waardoor er geen mogelijkheid is voor incremental backups. S3sync zal daarom de beste optie zijn. 
+    
     \subsection{Updaten van websites}
   
     Om het updaten van websites te automatiseren zijn er een aantal mogelijkheden. 
@@ -207,6 +222,10 @@
     
   \section{Conclusie}
   
-  Op basis van dit document wil ik deze wijzigingen doorvoeren binnen Fullmoon. Ik denk dat de mate van professionaliteit binnen de workflow erg zal verbeteren. De meest rigoureuze verandering voor de medewerkers zal het gebruik van een {\sc scm} systeem zijn maar als ze hier eenmaal aan gewend zijn geraakt voorspel ik dat het fijn werken is. Ik heb namelijk zelf gemerkt dat het erg motiverend is als je kan terugzien hoeveel je gedaan hebt!
+  Op basis van dit document wil ik deze wijzigingen doorvoeren binnen Fullmoon. Ik denk dat de mate van professionaliteit binnen de workflow erg zal verbeteren en dan met name het samenwerken. Doordat iedereen op zijn eigen computer werkt en niet meer op de centrale server zit niemand elkaar meer in de weg. Ook het overzicht van wie waar mee bezig is en wat hij precies gedaan heeft zal goed van pas komen.
+
+  De meest rigoureuze verandering voor de medewerkers zal het gebruik van een {\sc scm} systeem zijn maar als ze hier eenmaal aan gewend zijn geraakt voorspel ik dat het fijn werken is. Ik heb namelijk zelf gemerkt dat het erg motiverend is als je kan terugzien hoeveel je gedaan hebt!
+  
+  Ik heb er vertrouwen in dat de situatie bij Fullmoon zal verbeteren.
 
 \end{document}
