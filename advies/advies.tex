@@ -1,0 +1,30 @@
+\documentclass[12pt,a4paper]{report}
+
+% Number pages on the bottom
+\pagestyle{plain}
+
+% Use Dutch language so we get correct hyphenation
+\usepackage[dutch]{babel}
+\selectlanguage{dutch}
+
+% Use the Palatino font
+\usepackage{palatino}
+
+\title{Professioneel werken voor webdevelopment bureau's}
+
+\author{Mark Mulder}
+\date{mei 2009}
+
+\begin{document}
+
+  \thispagestyle{empty}
+
+    \maketitle
+    \pagenumbering{roman}
+    \include{acknowledgements}
+    \tableofcontents
+
+    \pagenumbering{arabic}
+    \include{introduction}
+
+\end{document}
