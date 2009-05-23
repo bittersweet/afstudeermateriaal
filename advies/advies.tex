@@ -1,4 +1,26 @@
-\documentclass[12pt,a4paper]{report}
+\documentclass[12pt, a4paper]{report}
+\usepackage{fontspec} 
+
+% Document Layout
+\usepackage{geometry} 
+\setlength\parindent{0in}
+
+% Fonts
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont [Ligatures={Common},Numbers={OldStyle}]{Adobe Caslon Pro}
+\setmonofont[Scale=0.8]{Monaco} 
+\setsansfont[Scale=0.9]{Optima Regular}
+
+% Headings
+\usepackage{sectsty} 
+\usepackage[normalem]{ulem} 
+\sectionfont{\rmfamily\mdseries\Large} 
+\subsectionfont{\rmfamily\mdseries\scshape\normalsize} 
+\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize} 
+
+% PDF Setup
+\usepackage[dvipdfm, bookmarks, colorlinks, breaklinks, pdftitle={Professioneel werken voor webdevelopment bureau's},pdfauthor={Mark Mulder}]{hyperref}  
+\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue}
 
 % Number pages on the bottom
 \pagestyle{plain}
@@ -6,9 +28,6 @@
 % Use Dutch language so we get correct hyphenation
 \usepackage[dutch]{babel}
 \selectlanguage{dutch}
-
-% Use the Palatino font
-\usepackage{palatino}
 
 \title{Professioneel werken voor webdevelopment bureau's}
 
