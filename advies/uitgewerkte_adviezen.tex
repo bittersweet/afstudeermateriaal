@@ -56,16 +56,16 @@ Als je alleen de gedistribueerde pakketten bekijkt zijn er een aantal voordelen 
 
 In navolging van onderdeel 4.4, het werken met een ontwikkelstraat, is het van belang dat het deployen van code naar verschillende omgevingen soepel en gestroomlijnd gaat. Als je telkens alles met de hand moet uploaden etc wordt de drempel namelijk te hoog gelegd, en is het niet fijn werken.
 
-Dit kan je op een aantal manieren bereiken. Veel oplossingen zijn zogeheten build tools, zoals Phing. Dit zijn erg uitgebreide pakketten die het makkelijk maken om je code te bouwen, te compileren. Omdat dit niet echt aan de orde zal zijn voor de meeste webdevelopment bedrijven wil ik me hierbij richten op een tool die meer voor hun geschikt is, namelijk Capistrano.
+Dit kan je op een aantal manieren bereiken. Veel oplossingen zijn zogeheten build tools, zoals Phing\cite{phing}. Dit zijn erg uitgebreide pakketten die het makkelijk maken om je code te bouwen, te compileren. Omdat dit niet echt aan de orde zal zijn voor de meeste webdevelopment bedrijven wil ik me hierbij richten op een tool die meer voor hun geschikt is, namelijk Capistrano\cite{capistrano}.
 
 Capistrano is een tool geboren in de Ruby on Rails community en is bij uitstek geschikt voor het deployen van nieuwe code. Het koppelt erg goed met een {\sc scm} systeem en neemt erg veel werk uit handen. Hiernaast biedt het de gebruiker bijvoorbeeld ook de mogelijkheid om een \emph{rollback} uit te voeren, als de gedeployde code niet goed blijkt te zijn. Een ander voordeel is het feit dat de eindgebruiker de nieuwe website pas te zien krijgt als hij helemaal is overgekomen, er kunnen dus geen bugs ontstaan door het feit dat een nieuwe wijziging pas voor de helft is geupload.
 
-Zelf gebruik ik het waar het voor bedoeld is, om Ruby on Rails applicaties te deployen, maar het is na een kleine aanpassing ook uitermate geschikt voor bijvoorbeeld PHP applicaties.
-
-Om een applicatie met Capistrano te kunnen deployen moet er aan een aantal eisen worden voldaan. Ten eerste moet er een config map worden aangemaakt in de rootmap van een bestand, waarin een ''deploy.rb'' bestand moet komen. Dit is het recept wat Capistrano gaat gebruiken om zijn werk te kunnen doen. Hierin geef je bijvoorbeeld de locatie aan van de web en {\sc scm} server.
+Zelf gebruik ik het waar het voor bedoeld is, om Ruby on Rails applicaties te deployen, maar het is na een kleine aanpassing ook uitermate geschikt voor bijvoorbeeld PHP applicaties. Dit doe je door in de root van een project een map genaamd config aan te maken, waarin zich een ''deploy.rb'' bestand bevindt. Dit is het recept wat Capistrano gaat gebruiken om zijn werk te kunnen doen. Hierin staat bijvoorbeeld de locatie van de web en {\sc scm} server, naar welke map alles geupload moet worden, etc.
 
 Met behulp van de Capistrano Multistage plugin\cite{capistranomultistage} kan je verschillende stages (omgevingen) aangeven. Dus bijvoorbeeld acceptatie, of productie. Als alles goed is ingesteld kan je met \'{e}\'{e}n commando code naar de gewenste omgeving deployen.
 
+\begin{quote}
+  \texttt{cap acceptatie deploy}
+\end{quote}
 
-
-In de bijlagen is een recept te vinden wat ik heb gebruikt bij Fullmoon om applicaties te deployen.
+In de bijlagen is een recept te vinden wat ik heb gebruikt bij Fullmoon om hun PHP applicaties succesvol te kunnen deployen.
