@@ -56,7 +56,7 @@ Als je alleen de gedistribueerde pakketten bekijkt zijn er een aantal voordelen 
 
 In navolging van onderdeel 4.4, het werken met een ontwikkelstraat, is het van belang dat het deployen van code naar verschillende omgevingen soepel en gestroomlijnd gaat. Als je telkens alles met de hand moet uploaden etc wordt de drempel namelijk te hoog gelegd, en is het niet fijn werken.
 
-Dit kan je op een aantal manieren bereiken. Veel oplossingen zijn zogeheten build tools, zoals Phing\cite{phing}. Dit zijn erg uitgebreide pakketten die het makkelijk maken om je code te bouwen, te compileren. Omdat dit niet echt aan de orde zal zijn voor de meeste webdevelopment bedrijven wil ik me hierbij richten op een tool die meer voor hun geschikt is, namelijk Capistrano\cite{capistrano}.
+Dit kan je op een aantal manieren bereiken. Veel oplossingen zijn zogeheten build tools, zoals Maven\cite{maven} en Phing\cite{phing}. Dit zijn erg uitgebreide pakketten die het makkelijk maken om je code te bouwen, te compileren. Omdat dit niet echt aan de orde zal zijn voor de meeste webdevelopment bedrijven en omdat het vrij omslachtig is wil ik me hierbij richten op een tool die meer voor hun geschikt is, namelijk Capistrano\cite{capistrano}.
 
 Capistrano is een tool geboren in de Ruby on Rails community en is bij uitstek geschikt voor het deployen van nieuwe code. Het koppelt erg goed met een {\sc scm} systeem en neemt erg veel werk uit handen. Hiernaast biedt het de gebruiker bijvoorbeeld ook de mogelijkheid om een \emph{rollback} uit te voeren, als de gedeployde code niet goed blijkt te zijn. Een ander voordeel is het feit dat de eindgebruiker de nieuwe website pas te zien krijgt als hij helemaal is overgekomen, er kunnen dus geen bugs ontstaan door het feit dat een nieuwe wijziging pas voor de helft is geupload.
 
@@ -69,3 +69,5 @@ Met behulp van de Capistrano Multistage plugin\cite{capistranomultistage} kan je
 \end{quote}
 
 In de bijlagen is een recept te vinden wat ik heb gebruikt bij Fullmoon om hun PHP applicaties succesvol te kunnen deployen.
+
+\paragraph{Ik kan aanraden om gebruik te maken van Capistrano om het updaten van code in verschillende omgevingen te vergemakkelijken.}
