@@ -44,9 +44,23 @@ In de ontwikkelfase, als mensen schermschetsen gaan maken en html pagina's zal d
 
 Omdat er veel diversiteit is in programmeertalen en operating systems is het onbegonnen werk om hier alle manieren te vermelden om dit te bereiken, maar er is wel iets waar op gelet moet worden. Zorg er voor dat alle versies van servers en software overeen komen. Stel dat je een bug in je website op moet lossen, als je lokale ontwikkelmachine een software versie draait waarin deze bug niet voor kan komen wordt het moeilijk om deze op te lossen.
 
+\paragraph{Advies} Verplaats het ontwikkelen van een centrale server naar de workstations zodat iedereen onafhankelijk kan werken, maar zorg er hierbij voor dat software versies gelijk lopen.
+
 \section{Ontwikkelstraat}
 
+De meeste bedrijven maken (mag ik hopen) gebruik van twee ontwikkelomgevingen, eentje waarin ze zelf werken en de live website, die bezoekers te zien krijgen.
 
+In de ideale situatie gaat een project vier verschillende omgevingen door, namelijk: ontwikkeling, test, acceptatie en productie, oftewel de al eerder genoemde OTAP-straat. 
+
+De ontwikkelomgeving bevindt zich op de computers van de werknemers zelf dus daar hoeft weinig over verteld te worden, de andere omgevingen behoeven (klopt dit?) nog wat uitleg.
+
+De testomgeving is een interne webserver die een bepaalde versie draait van het project zodat iedereen deze daar kan testen. In kleine bedrijven kan dit een beetje overkill zijn, maar voor grotere bedrijven waar bepaalde mensen verantwoordelijk zijn voor het testen en bijvoorbeeld Quality Assurance kan het erg handig zijn.
+
+De acceptatie omgeving is een afgeschermde webserver die wel bereikt kan worden door de klant. Hierop kan hij een bepaalde versie van het project bekijken en hierop feedback geven. Als je bijvoorbeeld de taak hebt gekregen om nieuwe functionaliteit aan een website toe te voegen is het van belang dat je dat hier op doet. Er is niks onprofessioneler als bezoekers een niet werkende site te zien krijgen omdat er aan de live website wordt gewerkt.
+
+Als laatste heb je de productie omgeving, oftewel de website die live staat. Dit spreekt voor zich.
+
+\paragraph{Advies} Maak gebruik van meerdere ontwikkelomgevingen zodat je je klant in een project kan betrekken en bezoekers van de website geen hinder ondervinden.
 
 \section{Backup}
 
