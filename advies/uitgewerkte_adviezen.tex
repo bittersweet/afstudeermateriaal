@@ -64,23 +64,23 @@ Als laatste heb je de productie omgeving, oftewel de website die live staat. Dit
 
 \section{Backup}
 
-
-
 Als er gebruik gemaakt wordt van {\sc scm} is de backup van sourcecode in principe al vrij goed geregeld. Elke versie van een bestand wordt opgeslagen en je kan dus altijd terug naar een vorige versie. Het maken van backups zit er nu bij de meeste mensen al wel goed in, maar vaak genoeg zie je dat deze backups bewaard worden op dezelfde machine. Als deze onverhoopt ten onder gaat ben je alsnog alles kwijt. Net zoals met de situatie bij 4.6 heb je dan een \emph{single point of failure} gecreëerd.
 
 Om echt een goede backupsituatie te hebben moeten deze minstens op een andere machine of bijvoorbeeld een externe hardeschijf worden bewaard. Het liefste ook nog op een andere locatie, want ook al heb je alles goed gebackupped, als het pand afbrandt heb je er niks aan.
 
-Tegenwoordig is hosting in de ``cloud'' in opkomst, waarin Amazon voorop loopt met haar Simple Storage Service (S3). Een account bij S3 is een kosteffectieve manier om veel data op te slaan, en er zijn inmiddels veel tools voor beschikbaar om backups gemakkelijk te laten verlopen. Als je het zo weet te scripten dat backups automatisch op een bepaalde tijd worden gemaakt haal je al veel werk uit handen. Het mooie aan S3 is dat alles daar ook nog eens gemirrored wordt. Een opgeslagen backup wordt namelijk op een aantal punten in de wereld opgeslagen. Op deze manier heb je enorm veel zekerheid over je backups.
+Tegenwoordig is hosting in de ``cloud'' in opkomst, waarin Amazon voorop loopt met haar Simple Storage Service (S3). Een account bij S3 is een kosteffectieve manier om veel data op te slaan, en er zijn inmiddels veel tools voor beschikbaar om backups gemakkelijk te laten verlopen. Als je het zo weet in te richten dat backups automatisch op een bepaalde tijd worden gemaakt haal je al veel werk uit handen. Het mooie aan S3 is dat alles daar ook nog eens gemirrored wordt. Alle bestanden op hun systeem worden namelijk op een aantal punten in de wereld opgeslagen. Op deze manier heb je enorm veel zekerheid over je backups.
+
+Als je er voor kiest om gebruik te maken van S3 zijn er veel tools waar je uit kan kiezen.\cite{amazontools} Zelf gebruik ik het liefste s3sync\cite{s3sync}, wat het eenvoudig maakt om uploads te automatiseren door middel van scripts.
 
 \subsection{Database}
 
-Om database gegevens van niet kritieke sites te backuppen kan meestal afgedaan worden met een nachtelijke backup. Zoals vermeld, wordt deze het liefst ook nog op andere plekken opgeslagen dan die bepaalde machine. 
+De meeste hostingproviders kunnen database backups voor je regelen maar als je er dan beschikking over wilt hebben moet je vaak contact opnemen met de support-afdeling. Het liefste verzorgen we deze backups dus ook zelf, om niet afhankelijk te zijn van zulke externe factoren.
 
-De meeste hostingproviders kunnen de backup voor je regelen maar als je dan een backup moet terugzetten moet je vaak contact opnemen met support. Het liefste regelen we de backup dus ook zelf, om niet afhankelijk te zijn van zulke externe factoren.
+Er zijn een aantal manieren om backups te maken van je MySQL database. Let wel, bijna al deze manieren moeten mysql stoppen (of zetten hier een lock op) om ervoor te zorgen dat data niet veranderd tijdens de backup. Backups maken doe je dus het liefste op tijden dat je site bijna niet bezocht wordt. Een andere manier is om een \emph{master-slave} systeem in te voeren, waarbij je gebruik maakt van twee verschillende databases. Hierbij kan je de slave database realtime of wanneer je het wilt laten synchroniseren met de master database. De backup kan je dan vervolgens uitvoeren op de slave. Op deze manier blijft je master database altijd online en ondervinden de bezoekers geen hinder.
 
-Er zijn tegenwoordig ontzettend veel scripts en programma's te vinden die het mogelijk maken om een geautomatiseerde backup van je MySQL database te krijgen. Let wel, bijna alle backup opties moeten mysql stoppen om ervoor te zorgen dat data niet veranderd tijdens de backup. Backuppen doe je dus het liefste op tijden dat je site bijna niet bezocht wordt. Een andere manier is om een \emph{master-slave} systeem in te voeren. Hierbij kan je de slave database realtime of wanneer je het wilt laten synchroniseren met de master database. De backup kan je dan vervolgens uitvoeren op de slave. Op deze manier blijft je master database altijd online en ondervinden de bezoekers geen hinder.
+MySQL levert mysqldump mee, wat het erg makkelijk maakt om een backup te maken. In de bijlagen heb ik een eenvoudig script bijgevoegd dat gebruik maakt van mysqldump en s3sync. Hiermee maak ik momenteel elke avond automatisch een backup, die naar Amazon S3 wordt geupload.
 
-
+\paragraph{Advies} Zorg voor regelmatige backups en bewaar deze op meerdere plaatsen zodat je er altijd bij kunt.
 
 \section{Ticketsysteem}
 
