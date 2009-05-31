@@ -66,6 +66,22 @@ Als laatste heb je de productie omgeving, oftewel de website die live staat. Dit
 
 
 
+Als er gebruik gemaakt wordt van {\sc scm} is de backup van sourcecode in principe al vrij goed geregeld. Elke versie van een bestand wordt opgeslagen en je kan dus altijd terug naar een vorige versie. Het maken van backups zit er nu bij de meeste mensen al wel goed in, maar vaak genoeg zie je dat deze backups bewaard worden op dezelfde machine. Als deze onverhoopt ten onder gaat ben je alsnog alles kwijt. Net zoals met de situatie bij 4.6 heb je dan een \emph{single point of failure} gecreëerd.
+
+Om echt een goede backupsituatie te hebben moeten deze minstens op een andere machine of bijvoorbeeld een externe hardeschijf worden bewaard. Het liefste ook nog op een andere locatie, want ook al heb je alles goed gebackupped, als het pand afbrandt heb je er niks aan.
+
+Tegenwoordig is hosting in de ``cloud'' in opkomst, waarin Amazon voorop loopt met haar Simple Storage Service (S3). Een account bij S3 is een kosteffectieve manier om veel data op te slaan, en er zijn inmiddels veel tools voor beschikbaar om backups gemakkelijk te laten verlopen. Als je het zo weet te scripten dat backups automatisch op een bepaalde tijd worden gemaakt haal je al veel werk uit handen. Het mooie aan S3 is dat alles daar ook nog eens gemirrored wordt. Een opgeslagen backup wordt namelijk op een aantal punten in de wereld opgeslagen. Op deze manier heb je enorm veel zekerheid over je backups.
+
+\subsection{Database}
+
+Om database gegevens van niet kritieke sites te backuppen kan meestal afgedaan worden met een nachtelijke backup. Zoals vermeld, wordt deze het liefst ook nog op andere plekken opgeslagen dan die bepaalde machine. 
+
+De meeste hostingproviders kunnen de backup voor je regelen maar als je dan een backup moet terugzetten moet je vaak contact opnemen met support. Het liefste regelen we de backup dus ook zelf, om niet afhankelijk te zijn van zulke externe factoren.
+
+Er zijn tegenwoordig ontzettend veel scripts en programma's te vinden die het mogelijk maken om een geautomatiseerde backup van je MySQL database te krijgen. Let wel, bijna alle backup opties moeten mysql stoppen om ervoor te zorgen dat data niet veranderd tijdens de backup. Backuppen doe je dus het liefste op tijden dat je site bijna niet bezocht wordt. Een andere manier is om een \emph{master-slave} systeem in te voeren. Hierbij kan je de slave database realtime of wanneer je het wilt laten synchroniseren met de master database. De backup kan je dan vervolgens uitvoeren op de slave. Op deze manier blijft je master database altijd online en ondervinden de bezoekers geen hinder.
+
+
+
 \section{Ticketsysteem}
 
 Als een bedrijf begint te groeien en met veel klanten te maken krijgt, kan het leveren van support en het overzien van nieuwe taken werknemers overmeesteren. Bugs en dergelijke (issues) doorkrijgen via de mail kan een tijd goed blijven gaan, maar als er bijvoorbeeld iemand ziek is en deze persoon de enige was met deze mails heb je dus een \emph{single point of failure}. Door een centraal overzicht te creëren sluit je situaties als deze uit en is de informatie voor iedereen beschikbaar.
