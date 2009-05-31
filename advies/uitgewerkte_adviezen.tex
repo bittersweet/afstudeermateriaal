@@ -68,7 +68,7 @@ Als laatste heb je de productie omgeving, oftewel de website die live staat. Dit
 
 \section{Ticketsysteem}
 
-Als een bedrijf begint te groeien en met veel klanten te maken krijgt, kan het leveren van support en het overzien van nieuwe taken werknemers overmeesteren. Bugs en dergelijke (issues) doorkrijgen via de mail kan een tijd goed blijven gaan, maar als er bijvoorbeeld iemand ziek is val je in een zwart gaat. Door een centraal overzicht te cre\"{e}ren sluit je situaties als deze uit en is de informatie voor iedereen beschikbaar.
+Als een bedrijf begint te groeien en met veel klanten te maken krijgt, kan het leveren van support en het overzien van nieuwe taken werknemers overmeesteren. Bugs en dergelijke (issues) doorkrijgen via de mail kan een tijd goed blijven gaan, maar als er bijvoorbeeld iemand ziek is en deze persoon de enige was met deze mails heb je dus een \emph{single point of failure}. Door een centraal overzicht te cre\"{e}ren sluit je situaties als deze uit en is de informatie voor iedereen beschikbaar.
 
 Je kan er voor kiezen om dit ticketsysteem alleen intern te gebruiken, maar je kan de transparantie van een bedrijf er mee verbeteren als je klanten ook toegang geeft. Zij kunnen dan in \'{e}\'{e}n oogopslag zien hoe het met hun tickets gaat en hier weer op reageren. Zo blijven support aanvragen en dergelijke niet verstopt in de e-mail van werknemers maar kan iedereen alles inzien. 
 
@@ -76,14 +76,14 @@ Je kan er voor kiezen om dit ticketsysteem alleen intern te gebruiken, maar je k
 
 Naast de al genoemde voordelen van een centraal overzicht van support aanvragen en transparantie zijn er nog een aantal voordelen.
 
-Voordelen voor medewerkers:
+\paragraph{Voordelen voor medewerkers:}
 
 \begin{itemize}
   \item Een goed overzicht van taken waar je aan gewerkt hebt, of nog aan moet werken.
   \item Prestatiebevorderend doordat er iets tastbaars te zien is van wat iemand gedaan heeft om iets op te lossen. Een ticket sluiten geeft erg veel voldoening.
 \end{itemize}
 
-Voordelen voor het bedrijf:
+\paragraph{Voordelen voor het bedrijf:}
 
 \begin{itemize}
   \item Werknemers goed concreet kunnen aansturen door ze issues toe te wijzen.
@@ -95,24 +95,26 @@ Voordelen voor het bedrijf:
 
 Er zijn werkelijk honderden issue tracking systemen\cite{issuetracking} dus er is altijd wel een pakket te vinden wat aan alle specifieke eisen van een bedrijf voldoet. Wel kan ik sterk aanraden om bij de keuze van een systeem te kijken of deze ook integratie biedt met een {\sc scm} systeem. Zo heb je \'{e}\'{e}n plek om een overzicht te krijgen van wat er allemaal gebeurd binnen het bedrijf, wijzigingen in de code, openen en sluiten van issues, etc. Ook kan je een koppeling leggen door het sluiten van tickets vanuit commitmessages mogelijk te maken. Zo kan je snel terugzien hoe een bepaalde issue precies opgelost is.
 
-Dit heeft als voordeel dat je de status van tickets kan wijzigen vanuit commit messages en dat je dan \'{e}\'{e}n plek hebt waar je een overzicht hebt van wat er allemaal gebeurd binnen het bedrijf. Wijzigingen in de code, openen en sluiten van issues, etc.
+Bij Fullmoon hebben we uiteindelijk voor Redmine\cite{redmine} gekozen. Naast issuetracking biedt het een goed overzicht van activiteit (per project en algemeen), solide integratie met veel {\sc scm} systemen en een ge\"{i}ntegreerd wiki systeem.
+
+\paragraph{Advies} Maak gebruik van een ticketsysteem om support voor klanten en taken centraal op te slaan. 
 
 \section{Automatisch deployen}
 
-In navolging van onderdeel 4.4, het werken met een ontwikkelstraat, is het van belang dat het deployen van code naar verschillende omgevingen soepel en gestroomlijnd gaat. Als je telkens alles met de hand moet uploaden etc wordt de drempel namelijk te hoog gelegd, en is het niet fijn werken.
+In navolging van onderdeel 4.4, het werken met een ontwikkelstraat, is het van belang dat het deployen van code naar verschillende omgevingen soepel en gestroomlijnd gaat. Als je telkens alles met de hand moet uploaden etc wordt de drempel namelijk te hoog gelegd, en breekt het in op je workflow.
 
-Dit kan je op een aantal manieren bereiken. Veel oplossingen zijn zogeheten build tools, zoals Maven\cite{maven} en Phing\cite{phing}. Dit zijn erg uitgebreide pakketten die het makkelijk maken om je code te bouwen, te compileren. Omdat dit niet echt aan de orde zal zijn voor de meeste webdevelopment bedrijven en omdat het vrij omslachtig is wil ik me hierbij richten op een tool die meer voor hun geschikt is, namelijk Capistrano\cite{capistrano}.
+Er zijn een aantal software oplossingen om het deployen te stroomlijnen. Veel hiervan zijn zogeheten build tools, zoals Maven\cite{maven} en Phing\cite{phing}. Dit zijn erg uitgebreide pakketten die het makkelijk maken om je code te bouwen, te compileren. Omdat dit niet echt aan de orde zal zijn voor de meeste webdevelopment bedrijven en omdat het vrij omslachtig is wil ik me hierbij richten op een tool die beter geschikt is, namelijk Capistrano\cite{capistrano}.
 
-Capistrano is een tool geboren in de Ruby on Rails community en is bij uitstek geschikt voor het deployen van nieuwe code. Het koppelt erg goed met een {\sc scm} systeem en neemt erg veel werk uit handen. Hiernaast biedt het de gebruiker bijvoorbeeld ook de mogelijkheid om een \emph{rollback} uit te voeren, als de gedeployde code niet goed blijkt te zijn. Een ander voordeel is het feit dat de eindgebruiker de nieuwe website pas te zien krijgt als hij helemaal is overgekomen, er kunnen dus geen bugs ontstaan door het feit dat een nieuwe wijziging pas voor de helft is geupload.
+Capistrano is een tool geboren in de Ruby on Rails community en is bij uitstek geschikt voor het deployen van nieuwe code. Het koppelt erg goed met een {\sc scm} systeem en neemt erg veel werk uit handen. Hiernaast biedt het de gebruiker bijvoorbeeld ook de mogelijkheid om een \emph{rollback} uit te voeren, als de gedeployde code niet goed blijkt te zijn. Een ander voordeel is het feit dat de eindgebruiker de nieuwe website pas te zien krijgt als deze in zijn geheel online staat, er kunnen dus geen bugs ontstaan door het feit dat een nieuwe wijziging pas voor de helft is geupload.
 
-Zelf gebruik ik het waar het voor bedoeld is, om Ruby on Rails applicaties te deployen, maar het is na een kleine aanpassing ook uitermate geschikt voor bijvoorbeeld PHP applicaties. Dit doe je door in de root van een project een map genaamd config aan te maken, waarin zich een ''deploy.rb'' bestand bevindt. Dit is het recept wat Capistrano gaat gebruiken om zijn werk te kunnen doen. Hierin staat bijvoorbeeld de locatie van de web en {\sc scm} server, naar welke map alles geupload moet worden, etc.
+Zelf heb ik het voornamelijk gebruikt om nieuwe versies van Ruby on Rails applicaties te deployen, maar het is na een kleine aanpassing ook uitermate geschikt voor bijvoorbeeld PHP applicaties. Dit doe je door in de root van een project een map genaamd config aan te maken, waarin zich een \texttt{deploy.rb} bestand bevindt. Dit is het ``recept'' wat Capistrano gaat gebruiken om zijn werk te kunnen doen. Hierin staat bijvoorbeeld de locatie van de web en {\sc scm} server, naar welke map alles geupload moet worden, etc.
 
-Met behulp van de Capistrano Multistage plugin\cite{capistranomultistage} kan je verschillende stages (omgevingen) aangeven. Dus bijvoorbeeld acceptatie, of productie. Als alles goed is ingesteld kan je met \'{e}\'{e}n commando code naar de gewenste omgeving deployen.
+Met behulp van de Capistrano Multistage plugin\cite{capistranomultistage} kan je verschillende stages (omgevingen) aangeven. Dus bijvoorbeeld acceptatie, of productie. Als alles goed is ingesteld kan je met \'{e}\'{e}n commando code naar de gewenste omgeving deployen. Om code naar de acceptatie omgeving te uploaden voer je bijvoorbeeld dit in:
 
 \begin{quote}
   \texttt{cap acceptatie deploy}
 \end{quote}
 
-In de bijlagen is een recept te vinden wat ik heb gebruikt bij Fullmoon om hun PHP applicaties succesvol te kunnen deployen.
+In de bijlagen is een recept te vinden wat ik heb gebruikt bij Fullmoon om hun PHP applicaties succesvol te kunnen deployen en een link naar een goede tutorial om met Capistrano aan de slag te gaan.
 
 \paragraph{Advies} Ik kan aanraden om gebruik te maken van Capistrano om het updaten van code in verschillende omgevingen te vergemakkelijken.
