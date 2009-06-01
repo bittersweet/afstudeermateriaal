@@ -18,15 +18,15 @@ Naast deze -- op zich voor de hand liggende voordelen -- biedt het ook stabilite
 
 Tegenwoordig zijn er tientallen {\sc scm} systemen om uit te kiezen. Een greep uit het aanbod: \emph{Subversion, Git, Mercurial} en \emph{Bazaar}. Eigenlijk bieden ze allemaal ongeveer dezelfde functionaliteit, zodat de keuze om hier één van uit te selecteren van andere factoren zal afhangen.
 
-Van dit rijtje is Subversion eigenlijk van de oude school. Het is een systeem dat gebaseerd is op een centrale \emph{repository}, waarin alle wijzigingen worden bijgehouden. De andere behoren tot de zogenaamde {\sc dvcs} familie, oftewel Distributed Concurrent Version System. Die als voordeel heeft dat er geen centrale server nodig is.
+Van dit rijtje is Subversion eigenlijk van de oude school. Het is een systeem dat gebaseerd is op een centrale \emph{repository}, waarin alle wijzigingen worden bijgehouden. De andere behoren tot de zogenaamde {\sc dvcs} familie, oftewel Distributed Concurrent Version System. Dit systeem heeft als voordeel dat er geen centrale server nodig is.
 
-Bij een {\sc dvcs} draait iedereen immers een lokale repository op zijn eigen computer. Bij Subversion moet wel gebruik gemaakt worden van één centrale server, waarmee iedereen verbinding moet maken om te kunnen werken. Omdat je in het geval van een {\sc dvcs} niet afhankelijk bent van een server kan je dus offline en onderweg werken. Hiernaast is het een stuk gemakkelijker en sneller om branches te maken omdat alles lokaal gebeurt, in plaats van over het netwerk. Bij Subversion is dat een tijdrovend bezigheid, terwijl bij een systeem als Git het maken van dezelfde branch slechts enkele seconden zal duren in plaats van minuten. Tijd waarin je niet met het project kunt werken. Doordat het een snel en eenvoudig proces is, wordt je aangemoedigd tot experimenteren (je kan immers snel even een branch aanmaken om iets uit te proberen) en word je niet uit je workflow gehaald, wat met Subversion wel het geval zou zijn.
+Bij een {\sc dvcs} draait iedereen immers een lokale repository op zijn eigen computer. Bij Subversion moet wel gebruik gemaakt worden van één centrale server, waarmee iedereen verbinding moet maken om te kunnen werken. Omdat je in het geval van een {\sc dvcs} niet afhankelijk bent van een server kun je dus offline en onderweg werken. Hiernaast is het een stuk gemakkelijker en sneller om branches te maken omdat alles lokaal gebeurt, in plaats van over het netwerk. Bij Subversion is dat een tijdrovend bezigheid, terwijl bij een systeem als Git het maken van dezelfde branch slechts enkele seconden zal duren in plaats van minuten. Tijd waarin je niet met het project kunt werken. Doordat het een snel en eenvoudig proces is, wordt je aangemoedigd tot experimenteren (je kunt immers snel even een branch aanmaken om iets uit te proberen) en word je niet uit je workflow gehaald, wat met Subversion wel het geval zou zijn.
 
 In de meeste gevallen richt je een {\sc dvcs} ook zo in dat iedereen wijzigingen verstuurt (\emph{pushed}) naar een centrale server, hetgeen zorgt voor een goed overzicht. Doordat iedereen zelf kiest wat er naar deze server wordt gepushed houd je een nette repository. Deze wordt niet vervuild door wijzigingen die bijvoorbeeld verkeerd waren of waar iemand nog niet mee klaar is.
 
 Een {\sc dvcs} heeft door bovenstaande mogelijkheden al mijn voorkeur, maar Subversion heeft ook iets wat in haar voordeel speelt. Doordat het van de genoemde tools de oudste is, zijn er erg veel verschillende applicaties en pakketten voor beschikbaar, waaronder veel grafische programma's. In tegenstelling tot de andere waarbij het tot nu toe meer een commandline aangelegenheid blijft.
 
-Wanneer je alleen naar de gedistribueerde pakketten bekijkt zijn er een aantal voordelen waarin Git zich onderscheidt van de rest. Ik zal ze kort benoemen.
+Wanneer je alleen naar de gedistribueerde pakketten bekijkt is er een aantal voordelen waarin Git zich onderscheidt van de rest. Ik zal ze kort benoemen.
 
 \begin{itemize}
   \item Goedkope local branching. Git geeft de mogelijkheid zoveel lokale branches aan te maken als men wil, waarbij het creëren, mergen en deleten hiervan slechts enkele seconde duurt. De andere systemen raden aan dat de beste branch een kloon is van de repository in een andere directory en bieden niet deze handigheid.
@@ -34,17 +34,17 @@ Wanneer je alleen naar de gedistribueerde pakketten bekijkt zijn er een aantal v
   \item Git leent zichzelf voor elke workflow. Het heeft niet één bepaald workflow model meegekregen, dus is het naar eigen inzicht te gebruiken. Bijvoorbeeld in de vorm van een Subversion-style systeem waarbij iedereen zijn wijzigingen naar een centrale server pushed. Maar ook de zogenaamde \emph{Integration Manager} workflow is mogelijk, waarbij er één persoon verantwoordelijk is om alle wijzigingen in een project door te voeren.
 \end{itemize}
 
-\paragraph{Advies} Als men niet wordt afgeschrikt door de commandline kan ik aanraden om Git te gebruiken. Maak men liever gebruik van een goede grafische tool kan men het beste voor Subversion kiezen.
+\paragraph{advies:} Als men niet wordt afgeschrikt door de commandline kan ik aanraden om Git te gebruiken. Maak men liever gebruik van een goede grafische tool kan men het beste voor Subversion kiezen.
 
 \section{Gescheiden werken}
 
 Aangezien ik iedereen kan aanraden gebruik te maken van een {\sc scm} systeem, zal het ontwikkelen plaats moeten vinden op de eigen computer, dus niet op een centrale server. Hierdoor kan iedereen individueel werken, zonder dat collega's last van elkaar ondervinden doordat ze aan hetzelfde project bezig zijn.
 
-In de ontwikkelfase, wanneer mensen bijvoorbeeld schermschetsen en HTML pagina's gaat maken zal dit nog niet veel veranderen aan de workflow. Maar op het moment dat er een website geprogrammeerd moet worden zal het in de meeste gevallen nodig zijn om lokaal ook een webserver te draaien. 
+In de ontwikkelfase, wanneer mensen bijvoorbeeld schermschetsen en HTML pagina's gaan maken zal dit nog niet veel veranderen aan de workflow. Maar op het moment dat er een website geprogrammeerd moet worden zal het in de meeste gevallen nodig zijn om lokaal ook een webserver te draaien. 
 
-Omdat er veel diversiteit is in programmeertalen en operating systems is het onbegonnen werk om hier alle manieren te vermelden om dit te bereiken, maar er is wel iets waar op gelet moet worden. Zorg er voor dat alle versies van software die op de servers en workstations draaien overeen komen. Stel dat een bug in een website opgelost moet worden, als de workstations een afwijkende versie draaien van bijvoorbeeld de webserver waarin deze bug niet voor kan komen wordt het moeilijk om deze op te lossen.
+Omdat er veel diversiteit is in programmeertalen en operating systems, is het onbegonnen werk om hier alle manieren te vermelden om dit te bereiken, maar er is wel iets waar op gelet moet worden. Zorg er voor dat alle versies van software die op de servers en workstations draaien overeen komen. Stel dat een bug in een website opgelost moet worden, als de workstations een afwijkende versie draaien van bijvoorbeeld de webserver waarin deze bug niet voor kan komen wordt het moeilijk om deze op te lossen.
 
-\paragraph{Advies} Verplaats het ontwikkelen van een centrale server naar de workstations zodat iedereen onafhankelijk kan werken, maar zorg er hierbij voor dat software versies overeen komen.
+\paragraph{advies:} Verplaats het ontwikkelen van een centrale server naar de workstations zodat iedereen onafhankelijk kan werken, maar zorg er hierbij voor dat software versies overeen komen.
 
 \section{Ontwikkelstraat}
 
@@ -56,17 +56,17 @@ De ontwikkelomgeving bevindt zich op de computers van de medewerkers zelf dus da
 
 De testomgeving is een interne webserver die een bepaalde versie van het project draait, zodat iedereen die daar kan testen. Bij kleine bedrijven kan dit een beetje overkill zijn, maar voor grotere bedrijven waar bepaalde mensen verantwoordelijk zijn voor het testen en QA (Quality Assurance) kan het erg handig zijn.
 
-De acceptatieomgeving is een afgeschermde webserver die wel toegankelijk is voor door de klant. Die hierop een bepaalde versie van het project kan bekijken en hier feedback op kan geven. Wanneer iemand bijvoorbeeld de taak heeft gekregen om nieuwe functionaliteit aan een website toe te voegen is het van belang dat de gebruiker deze pas ziet wanneer het helemaal klaar en goedgekeurd is. Het is tamelijk onprofessioneel als bezoekers een niet werkende site te zien krijgen, omdat er live aan gewerkt wordt.
+De acceptatieomgeving is een afgeschermde webserver die wel toegankelijk is voor door de klant. Deze kan hierop een bepaalde versie van het project bekijken en hier feedback op geven. Wanneer iemand bijvoorbeeld de taak heeft gekregen om nieuwe functionaliteit aan een website toe te voegen is het van belang dat de gebruiker deze pas ziet wanneer het helemaal klaar en goedgekeurd is. Het is tamelijk onprofessioneel als bezoekers een niet werkende site te zien krijgen, omdat er live aan gewerkt wordt.
 
 Ten slotte heb je de productieomgeving: de live website, dit spreekt voor zich.
 
-\paragraph{Advies} Maak gebruik van meerdere ontwikkelomgevingen, zodat de klant in een project betrokken kan worden en bezoekers van de website geen hinder ondervinden van de werkzaamheden.
+\paragraph{advies:} Maak gebruik van meerdere ontwikkelomgevingen, zodat de klant in een project betrokken kan worden en bezoekers van de website geen hinder ondervinden van de werkzaamheden.
 
 \section{Backup}
 
 Indien er gebruik gemaakt wordt van {\sc scm} is de backup van broncode in principe al vrij goed geregeld. Iedere versie van een bestand wordt opgeslagen en men kan dus altijd terug naar een vorige versie. Het regelmatig maken van backups wordt gelukkig door de meeste mensen al op waarde geschat, maar vaak genoeg zie je dat deze backups bewaard worden op hetzelfde systeem. Wanneer deze onverhoopt ten onder gaat ben je alsnog alles kwijt. Zo heb je een  \emph{single point of failure} gecreëerd.
 
-Om een echt goede backupsituatie te hebben moet deze ten minste op een andere machine of bijvoorbeeld een externe hardeschijf worden bewaard. Het verdient de voorkeur om de backup ook nog op een fysiek andere locatie te hebben, want in geval van brand is niets veilig.
+Om een echt goede backupsituatie te hebben moet deze ten minste op een andere machine of bijvoorbeeld een externe harde schijf worden bewaard. Het verdient de voorkeur om de backup ook nog op een fysiek andere locatie te hebben, want in geval van brand is niets veilig.
 
 Tegenwoordig is hosting in de ``cloud'' in opkomst, waarin Amazon voorop loopt met haar Simple Storage Service (S3). Een account bij S3 is een betrekkelijk voordelige manier om veel data op te slaan. Er zijn inmiddels ook al veel tools voor beschikbaar om het maken van backups gemakkelijk te laten verlopen. Wanneer men er voor kan zorgen dat backups automatisch op vaste tijdstippen worden gemaakt geeft het een gevoel van veiligheid en is het tijdsbesparend. Een groot voordeel van S3 is dat alles daar ook nog eens gemirrored wordt. Alle bestanden op hun systeem worden namelijk op diverse locaties in de wereld opgeslagen. Op deze manier heb je enorm veel zekerheid over je backups.
 
@@ -80,7 +80,7 @@ Er zijn verschillende manieren om backups te maken van {\sc mysql} database. Let
 
 {\sc MySQL} levert mysqldump mee, waardoor het triviaal maakt om backups te maken. In de bijlagen heb ik een eenvoudig script bijgevoegd dat gebruik maakt van mysqldump en s3sync. Hiermee maak ik momenteel elke avond automatisch een backup, die naar Amazon S3 wordt geupload.
 
-\paragraph{Advies} Zorg voor regelmatige backups en bewaar deze op meerdere plaatsen zodat je altijd zeker bent over je data.
+\paragraph{advies:} Zorg voor regelmatige backups en bewaar deze op meerdere plaatsen zodat je altijd zeker bent over je data.
 
 \section{Ticketsysteem}
 
@@ -113,7 +113,7 @@ Er is werkelijk een overvloed aan aanbod van issue tracking systemen\cite{issuet
 
 Bij Fullmoon hebben we uiteindelijk voor Redmine\cite{redmine} gekozen. Naast issuetracking biedt het een goed overzicht van activiteit per project en algemeen, solide integratie met veel {\sc scm} systemen en een geïntegreerd wiki systeem.
 
-\paragraph{Advies} Maak gebruik van een ticketsysteem om support voor klanten en taken voor medewerkers centraal op te slaan. 
+\paragraph{advies:} Maak gebruik van een ticketsysteem om support voor klanten en taken voor medewerkers centraal op te slaan. 
 
 \section{Automatisch deployen}
 
@@ -133,4 +133,4 @@ Met behulp van de Capistrano Multistage plugin\cite{capistranomultistage} kan me
 
 In de bijlagen is het recept te vinden dat ik heb gebruikt bij Fullmoon om hun PHP applicaties succesvol te kunnen deployen en een link naar een goede tutorial om met Capistrano aan de slag te gaan.
 
-\paragraph{Advies} Ik raad aan gebruik te maken van Capistrano om het deployen van code in verschillende omgevingen te vergemakkelijken.
+\paragraph{advies:} Ik raad aan gebruik te maken van Capistrano om het deployen van code in verschillende omgevingen te vergemakkelijken.
