@@ -2,49 +2,49 @@
 
 \section{Introductie}
 
-In dit gedeelte van het document zal ik dieper ingaan op de adviezen die ik net heb opgesteld. Ik sommige gevallen zal ik een aantal opties aandragen waarna ik mijn persoonlijke voorkeur uitspreek.
+In dit gedeelte van het document zal ik dieper ingaan op de adviezen die ik net heb opgesteld. In sommige gevallen zal ik een aantal opties aandragen waarna ik mijn persoonlijke voorkeur uitspreek.
 
-\paragraph{Om mijn adviezen toegankelijk te houden voor de meeste bedrijven en studenten heb ik mijn adviezen en keuzes gebaseerd op open source software.}
+\paragraph{N.B. Om mijn adviezen toegankelijk te houden voor de meeste bedrijven en studenten heb ik mijn adviezen en keuzes gebaseerd op open source software.}
 
 \section{{\sc scm} systeem}
 
 \subsection{Voordelen}
 
-Gebruik maken van een {\sc scm} systeem bied ontzettend veel voordelen. Het opslaan van verschillende versies van bestanden tijdens het ontwikkelproces is van onmisbaar belang. Het biedt je veiligheid want je kan altijd terug gaan naar een vorige versie als er bijvoorbeeld een fout in de code is geslopen. Het zorgt er ook voor dat je goed kan samenwerken omdat elke werknemer individueel kan werken aan zijn of haar eigen versie van een project. Hierdoor kan het ook een overzicht bieden van wie wat doet, je kan precies zien wat is aangepast in een bepaald bestand en door wie.
+Gebruik maken van een {\sc scm} systeem biedt ontzettend veel voordelen. Het opslaan van verschillende versies van bestanden tijdens het ontwikkelproces is van onmisbaar belang. Het biedt veiligheid want men kan altijd terugkeren naar een vorige versie, wanneer er bijvoorbeeld een fout in de code is geslopen. Het zorgt er ook voor dat men goed kan samenwerken omdat elke werknemer individueel kan werken aan zijn of haar eigen versie van een project. Hierdoor kan het ook een overzicht bieden van wie wat doet, men kan precies zien wat is aangepast in een bepaald bestand en door wie.
 
-Naast deze op zich voor de hand liggende voordelen biedt het ook stabiliteit. Doordat je met een {\sc scm} systeem de mogelijkheid hebt om te \emph{branchen} kan je gelijktijdig meerdere versies van een project hebben. Bijvoorbeeld \emph{stable} voor de stabiele versie en een \emph{development} versie waarin gewerkt wordt. Doordat je wijzigingen in een speciale ontwikkel branch uitvoert, blijft je stable branch onaangeraakt en dus altijd stabiel. In een ideale situatie worden alle wijzingingen uitvoerig getest voordat ze in de stabiele versie worden geïntegreerd. Omdat je dus kan werken in een gescheiden branch is het veilig om te experimenteren, wat in mijn ogen een groot voordeel is.
+Naast deze -- op zich voor de hand liggende voordelen -- biedt het ook stabiliteit. Doordat met een {\sc scm} systeem de mogelijkheid hebt om te \emph{branchen} is gelijktijdig werken met meerdere versies van een project mogelijk. Bijvoorbeeld \emph{stable} voor de stabiele versie en een \emph{development} versie waarin gewerkt wordt. Doordat wijzigingen in een speciale ontwikkel branch worden uitgevoerd, blijft je stabiele branch onaangeraakt en daardoor dus altijd stabiel. In een ideale situatie worden alle wijzingingen uitvoerig getest voordat ze in de stabiele versie worden geïntegreerd. Omdat je dus kan werken in een gescheiden branch is het veilig om te experimenteren, hetgeen in mijn ogen een groot voordeel is.
 
 \subsection{Tools}
 
-Tegenwoordig zijn er vele {\sc scm} systemen om uit te kiezen. Een greep uit het aanbod: \emph{Subversion, Git, Mercurial} en \emph{Bazaar}. Eigenlijk bieden ze allemaal ongeveer dezelfde functionaliteit dus de keuze om één hiervan uit te kiezen zal van andere factoren afhangen.
+Tegenwoordig zijn er tientallen {\sc scm} systemen om uit te kiezen. Een greep uit het aanbod: \emph{Subversion, Git, Mercurial} en \emph{Bazaar}. Eigenlijk bieden ze allemaal ongeveer dezelfde functionaliteit, zodat de keuze om hier één van uit te selecteren van andere factoren zal afhangen.
 
-Van dit rijtje is Subversion eigenlijk van de oude school. Het is een systeem wat gebaseerd is op een centrale repository waarin alle wijzigingen worden bijgehouden. De andere behoren tot de zogenaamde {\sc dvcs} familie, oftewel Distributed Concurrent Version System.
+Van dit rijtje is Subversion eigenlijk van de oude school. Het is een systeem dat gebaseerd is op een centrale \emph{repository}, waarin alle wijzigingen worden bijgehouden. De andere behoren tot de zogenaamde {\sc dvcs} familie, oftewel Distributed Concurrent Version System. Die als voordeel heeft dat er geen centrale server nodig is.
 
-Het voordeel van een {\sc dvcs} is dat je geen centrale server nodig hebt, iedereen draait een lokale repository. Bij Subversion moet je wel gebruik maken van één centrale server waar iedereen verbinding mee moet leggen om te kunnen werken. Omdat je dus je eigen repository draait kan je commits maken zonder dat je verbinding hebt met een server, je kan dus offline en onderweg werken. Hiernaast is het een stuk gemakkelijker en sneller om branches te maken omdat alles lokaal gebeurd, in plaats van over het netwerk. Bij Subversion is dat een log proces wat erg lang duurt, bij een systeem als Git zal een branch van hetzelfde project enkele seconden duren in plaats van 3 minuten. Hierdoor wordt het dus bijvoorbeeld makkelijk om even een branch aan te maken om met een bepaald idee te experimenteren. Mocht het niet bevallen kan deze branch gemakkelijk weer verwijderd worden. Omdat het een snelle procedure is word je niet uit je workflow gehaald wat met Subversion wel het geval zou zijn.
+Bij een {\sc dvcs} draait iedereen immers een lokale repository op zijn eigen computer. Bij Subversion moet wel gebruik gemaakt worden van één centrale server, waarmee iedereen verbinding moet maken om te kunnen werken. Omdat je in het geval van een {\sc dvcs} niet afhankelijk bent van een server kan je dus offline en onderweg werken. Hiernaast is het een stuk gemakkelijker en sneller om branches te maken omdat alles lokaal gebeurt, in plaats van over het netwerk. Bij Subversion is dat een tijdrovend bezigheid, terwijl bij een systeem als Git het maken van dezelfde branch slechts enkele seconden zal duren in plaats van minuten. Tijd waarin je niet met het project kunt werken. Doordat het een snel en eenvoudig proces is, wordt je aangemoedigd tot experimenteren (je kan immers snel even een branch aanmaken om iets uit te proberen) en word je niet uit je workflow gehaald, wat met Subversion wel het geval zou zijn.
 
-In de meeste gevallen richt je een {\sc dvcs} ook zo in dat iedereen wijzigingen verstuurd (\emph{pushed}) naar een centrale server, dat zorgt voor een goed overzicht. Doordat iedereen zelf kiest wat er naar deze server wordt gepushed houd je een nette repository. Hij wordt niet vervuild door commits die bijvoorbeeld verkeerd waren of waar iemand nog niet mee klaar is.
+In de meeste gevallen richt je een {\sc dvcs} ook zo in dat iedereen wijzigingen verstuurt (\emph{pushed}) naar een centrale server, hetgeen zorgt voor een goed overzicht. Doordat iedereen zelf kiest wat er naar deze server wordt gepushed houd je een nette repository. Deze wordt niet vervuild door wijzigingen die bijvoorbeeld verkeerd waren of waar iemand nog niet mee klaar is.
 
-Een {\sc dvcs} geniet mijn voorkeur al door deze punten maar Subversion heeft iets wat in haar voordeel speelt. Doordat het van de genoemde tools de oudste is zijn er erg veel verschillende applicaties en pakketten voor beschikbaar. Zo zijn er erg veel grafische programma's om met Subversion te kunnen werken, in tegenstelling tot de andere waarbij het tot nu toe meer een commandline aangelegenheid blijft.
+Een {\sc dvcs} heeft door bovenstaande mogelijkheden al mijn voorkeur, maar Subversion heeft ook iets wat in haar voordeel speelt. Doordat het van de genoemde tools de oudste is, zijn er erg veel verschillende applicaties en pakketten voor beschikbaar, waaronder veel grafische programma's. In tegenstelling tot de andere waarbij het tot nu toe meer een commandline aangelegenheid blijft.
 
-Als je alleen de gedistribueerde pakketten bekijkt zijn er een aantal voordelen die Git hierin weer afscheid van de rest. Ik zal ze kort benoemen.
+Wanneer je alleen naar de gedistribueerde pakketten bekijkt zijn er een aantal voordelen waarin Git zich onderscheidt van de rest. Ik zal ze kort benoemen.
 
 \begin{itemize}
-  \item Goedkope local branching. Git geeft je de mogelijkheid zoveel lokale branches aan te maken als je wilt, waarbij het creëren, mergen en deleten hiervan maar enkele seconde duurt. De andere systemen raden aan dat de beste branch een kloon is van de repository in een andere directory en bieden niet deze handigheid.
-  \item Git is ontzettend snel\cite{whygitisbetterthanx}. Omdat het ontworpen is voor gebruik aan de Linux kernel, waren gebruik maken van grote repositories en snelheid uitgangspunten tijdens te ontwikkeling, en dat is te merken.
-  \item Git leent zichzelf voor elke workflow. Git heeft niet één bepaald workflow model meegekregen, dus het is naar wens te gebruiken. Bijvoorbeeld in de vorm van een Subversion style systeem waarbij iedereen zijn wijzigingen naar een centrale server pushed of eentje waarbij er een aangesteld persoon verantwoordelijk is om alle wijzigingen door te voeren, de zogenaamde Integration Manager workflow.
+  \item Goedkope local branching. Git geeft de mogelijkheid zoveel lokale branches aan te maken als men wil, waarbij het creëren, mergen en deleten hiervan slechts enkele seconde duurt. De andere systemen raden aan dat de beste branch een kloon is van de repository in een andere directory en bieden niet deze handigheid.
+  \item Git is ontzettend snel\cite{whygitisbetterthanx}. Omdat het ontworpen is voor het werken aan de Linux kernel, waren het gebruik maken van grote repositories en snelheid uitgangspunten tijdens de ontwikkeling, en dat is goed te merken.
+  \item Git leent zichzelf voor elke workflow. Het heeft niet één bepaald workflow model meegekregen, dus is het naar eigen inzicht te gebruiken. Bijvoorbeeld in de vorm van een Subversion-style systeem waarbij iedereen zijn wijzigingen naar een centrale server pushed. Maar ook de zogenaamde \emph{Integration Manager} workflow is mogelijk, waarbij er één persoon verantwoordelijk is om alle wijzigingen in een project door te voeren.
 \end{itemize}
 
-\paragraph{Advies} Als je niet afgeschrikt raakt van de commandline kan ik aanraden om Git te gebruiken. Maak je liever gebruik van een goede grafische tool kies je het beste voor Subversion.
+\paragraph{Advies} Als men niet wordt afgeschrikt door de commandline kan ik aanraden om Git te gebruiken. Maak men liever gebruik van een goede grafische tool kan men het beste voor Subversion kiezen.
 
 \section{Gescheiden werken}
 
-Doordat ik iedereen kan aanraden gebruik te maken van een {\sc scm} systeem, zal het ontwikkelen plaats moeten vinden  op de eigen computer, dus niet op een centrale server. Hierdoor kan iedereen individueel werken, zonder dat werknemers last van elkaar ondervinden omdat iemand bijvoorbeeld wat aanpast.
+Aangezien ik iedereen kan aanraden gebruik te maken van een {\sc scm} systeem, zal het ontwikkelen plaats moeten vinden op de eigen computer, dus niet op een centrale server. Hierdoor kan iedereen individueel werken, zonder dat collega's last van elkaar ondervinden doordat ze aan hetzelfde project bezig zijn.
 
-In de ontwikkelfase, als mensen schermschetsen gaan maken en html pagina's zal dit nog niet veel veranderen aan de workflow. Maar op het moment dat er een website geprogrammeerd moet worden zal het in de meeste gevallen nodig zijn om lokaal ook een webserver te draaien. 
+In de ontwikkelfase, wanneer mensen bijvoorbeeld schermschetsen en HTML pagina's gaat maken zal dit nog niet veel veranderen aan de workflow. Maar op het moment dat er een website geprogrammeerd moet worden zal het in de meeste gevallen nodig zijn om lokaal ook een webserver te draaien. 
 
-Omdat er veel diversiteit is in programmeertalen en operating systems is het onbegonnen werk om hier alle manieren te vermelden om dit te bereiken, maar er is wel iets waar op gelet moet worden. Zorg er voor dat alle versies van software die op de servers en workstations draaien overeen komen. Stel dat je een bug in je website op moet lossen, als je lokale ontwikkelmachine een afwijkende versie van bijvoorbeeld de webserver heeft waarin deze bug niet voor kan komen wordt het moeilijk om deze op te lossen.
+Omdat er veel diversiteit is in programmeertalen en operating systems is het onbegonnen werk om hier alle manieren te vermelden om dit te bereiken, maar er is wel iets waar op gelet moet worden. Zorg er voor dat alle versies van software die op de servers en workstations draaien overeen komen. Stel dat een bug in een website opgelost moet worden, als de workstations een afwijkende versie draaien van bijvoorbeeld de webserver waarin deze bug niet voor kan komen wordt het moeilijk om deze op te lossen.
 
-\paragraph{Advies} Verplaats het ontwikkelen van een centrale server naar de workstations zodat iedereen onafhankelijk kan werken, maar zorg er hierbij voor dat software versies gelijk lopen.
+\paragraph{Advies} Verplaats het ontwikkelen van een centrale server naar de workstations zodat iedereen onafhankelijk kan werken, maar zorg er hierbij voor dat software versies overeen komen.
 
 \section{Ontwikkelstraat}
 
@@ -54,7 +54,7 @@ In de ideale situatie gaat een project vier verschillende omgevingen door, namel
 
 De ontwikkelomgeving bevindt zich op de computers van de werknemers zelf dus daar hoeft weinig over verteld te worden, de andere omgevingen behoeven (klopt dit?) nog wat uitleg.
 
-De testomgeving is een interne webserver die een bepaalde versie draait van het project zodat iedereen deze daar kan testen. In kleine bedrijven kan dit een beetje overkill zijn, maar voor grotere bedrijven waar bepaalde mensen verantwoordelijk zijn voor het testen en bijvoorbeeld QA (quality assurance) kan het erg handig zijn.
+De testomgeving is een interne webserver die een bepaalde versie draait van het project zodat iedereen deze daar kan testen. In kleine bedrijven kan dit een beetje overkill zijn, maar voor grotere bedrijven waar bepaalde mensen verantwoordelijk zijn voor het testen en bijvoorbeeld QA (Quality Assurance) kan het erg handig zijn.
 
 De acceptatie omgeving is een afgeschermde webserver die wel bereikt kan worden door de klant. Hierop kan hij een bepaalde versie van het project bekijken zodat hij er feedback op kan geven. Als je bijvoorbeeld de taak hebt gekregen om nieuwe functionaliteit aan een website toe te voegen is het van belang dat de gebruiker deze pas ziet als het helemaal klaar en goedgekeurd is. Er is niks onprofessioneler als bezoekers een niet werkende site te zien krijgen omdat er live aan gewerkt wordt.
 
