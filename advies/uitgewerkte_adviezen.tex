@@ -34,7 +34,7 @@ Wanneer je alleen naar de gedistribueerde pakketten bekijkt is er een aantal voo
   \item Git leent zichzelf voor elke workflow. Het heeft niet één bepaald workflow model meegekregen, dus is het naar eigen inzicht te gebruiken. Bijvoorbeeld in de vorm van een Subversion-style systeem waarbij iedereen zijn wijzigingen naar een centrale server pushed. Maar ook de zogenaamde \emph{Integration Manager} workflow is mogelijk, waarbij er één persoon verantwoordelijk is om alle wijzigingen in een project door te voeren.
 \end{itemize}
 
-\paragraph{advies:} Als men niet wordt afgeschrikt door de commandline wordt aangeraden gebruik te maken van Git. Maakt men liever gebruik van een goede grafische tool dan kan men het beste voor Subversion kiezen.
+\paragraph{Advies:} Als men niet wordt afgeschrikt door de commandline wordt aangeraden gebruik te maken van Git. Maakt men liever gebruik van een goede grafische tool dan kan men het beste voor Subversion kiezen.
 
 \section{Gescheiden werken}
 
@@ -44,7 +44,7 @@ In de ontwikkelfase, wanneer mensen bijvoorbeeld schermschetsen en HTML pagina's
 
 Omdat er veel diversiteit is in programmeertalen en operating systems, is het onbegonnen werk om hier alle manieren te vermelden om dit te bereiken, maar er is wel iets waar op gelet moet worden. Zorg er voor dat alle versies van software die op de servers en workstations draaien overeen komen. Stel dat een bug in een website opgelost moet worden, als de workstations een afwijkende versie draaien van bijvoorbeeld de webserver waarin deze bug niet voor kan komen wordt het moeilijk om deze op te lossen.
 
-\paragraph{advies:} Verplaats het ontwikkelen van een centrale server naar de workstations zodat iedereen onafhankelijk kan werken, maar zorg er hierbij voor dat software versies overeen komen.
+\paragraph{Advies:} Verplaats het ontwikkelen van een centrale server naar de workstations zodat iedereen onafhankelijk kan werken, maar zorg er hierbij voor dat software versies overeen komen.
 
 \section{Ontwikkelstraat}
 
@@ -60,7 +60,7 @@ De acceptatieomgeving is een afgeschermde webserver die wel toegankelijk is voor
 
 Ten slotte heb je de productieomgeving: de live website, dit spreekt voor zich.
 
-\paragraph{advies:} Maak gebruik van meerdere ontwikkelomgevingen, zodat de klant in een project betrokken kan worden en bezoekers van de website geen hinder ondervinden van de werkzaamheden.
+\paragraph{Advies:} Maak gebruik van meerdere ontwikkelomgevingen, zodat de klant in een project betrokken kan worden en bezoekers van de website geen hinder ondervinden van de werkzaamheden.
 
 \section{Backup}
 
@@ -80,7 +80,7 @@ Er zijn verschillende manieren om backups te maken van een MySQL database. Let w
 
 {\sc mysql} levert mysqldump mee, waardoor het triviaal maakt om backups te maken. In de bijlagen is een eenvoudig script bijgevoegd dat gebruik maakt van mysqldump en s3sync. Hiermee kan elke avond een backup gemaakt worden die naar Amazon S3 wordt geupload.
 
-\paragraph{advies:} Zorg voor regelmatige backups en bewaar deze op meerdere plaatsen zodat er altijd zekerheid is over de veiligheid van data.
+\paragraph{Advies:} Zorg voor regelmatige backups en bewaar deze op meerdere plaatsen zodat er altijd zekerheid is over de veiligheid van data.
 
 \section{Ticketsysteem}
 
@@ -113,7 +113,7 @@ Er is werkelijk een overvloed aan aanbod van issue tracking systemen\cite{issuet
 
 Bij Fullmoon hebben we uiteindelijk voor Redmine\cite{redmine} gekozen. Naast issuetracking biedt het een goed overzicht van activiteit per project en algemeen, solide integratie met veel {\sc scm} systemen en een geïntegreerd wiki systeem.
 
-\paragraph{advies:} Maak gebruik van een ticketsysteem om support voor klanten en taken voor medewerkers centraal op te slaan. 
+\paragraph{Advies:} Maak gebruik van een ticketsysteem om support voor klanten en taken voor medewerkers centraal op te slaan. 
 
 \section{Automatisch deployen}
 
@@ -133,4 +133,4 @@ Met behulp van de Capistrano Multistage plugin\cite{capistranomultistage} kan me
 
 In de bijlagen is het recept te vinden dat ik heb gebruikt bij Fullmoon om hun PHP applicaties succesvol te kunnen deployen en een link naar een goede tutorial om met Capistrano aan de slag te gaan.
 
-\paragraph{advies:} Ik raad aan gebruik te maken van Capistrano om het deployen van code in verschillende omgevingen te vergemakkelijken.
+\paragraph{Advies:} Ik raad aan gebruik te maken van Capistrano om het deployen van code in verschillende omgevingen te vergemakkelijken.
