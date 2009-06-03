@@ -20,7 +20,13 @@ Naast het feit dat elke werknemer nu werkt met Subversion komt het ook nog in an
 
 \section{Ontwikkelstraat}
 
-4 gescheiden omgevingen, maakt gebruik van SVN om bepaalde omgevingen te draaien.
+In het begin maakte Fullmoon gebruik van twee verschillende omgevingen, één interne webserver waar op ontwikkeld werd en een externe server waar alle sites op draaiden. Dat aantal is vergroot naar vier door een acceptatie- en testomgeving toe te voegen. De huidige situatie is dus in de vorm van een OTAP-straat\footnote{ontwikkel, test, acceptatie en productie}. Er wordt niet voor elk project gebruik gemaakt van de acceptatie server maar in principe gaat nieuwe code 3 omgevingen door voor het online komt te staan.
+
+Het werken op de interne webserver is ook veranderd, door middel van Subversion werkt elke medewerker nu op zijn eigen computer. Zo kan iedereen individueel werken aan projecten zonder dat ze elkaar hierbij in de weg zitten. Door middel van Subversion zijn de wijzigingen van anderen uiteraard nog wel binnen te halen.
+
+Zoals vermeld in 2.1.2 wordt de testomgeving automatisch geupdate in navolging van een commit. Hier kan een project intern getest worden door alle werknemers.
+
+De acceptatieomgeving is ook een interne webserver die bereikbaar is voor aan de buitenwereld door middel van een gebruikersnaam en wachtwoord. Door middel van Subversion wordt een bepaalde versie van het project een \emph{tag} gegeven, zodat de acceptatieomgeving de website kan tonen op basis van deze tag. Zo kan er verder gewerkt worden aan het project terwijl de klant wel een goede versie te zien krijgt om wijzigingen goed te keuren.
 
 \section{Backup}
 
@@ -28,7 +34,9 @@ Naast het feit dat elke werknemer nu werkt met Subversion komt het ook nog in an
 
 \section{Ticketsysteem}
 
-Redmine waar een overzicht te zien is van alle projecten en waar activiteit bekeken kan worden, tickets etc.
+Na vele systemen uitgeprobeerd te hebben is de keuze gevallen op Redmine. Deze sloot nauw aan bij de wensen van Fullmoon. Zo moest er een centrale plek komen waar de status van projecten te bekijken was, issues én wijzigigen in de code. Eigenlijk doe je Redmine er te kort mee als je het alleen een ticketsysteem noemt, het biedt nog veel meer.
+
+Fullmoon gebruikt het om het moment alleen intern, ze leveren sinds kort wel support voor de klant met behulp van een ticketsysteem maar dat staat los van Redmine. Mail naar een support adres wordt opgevangen door dit systeem waarna klanten verdere correspondentie en updates ook via de website kunnen raadplegen. In de toekomst zal nog geëvalueerd worden of die scheiding gunstig is want Redmine kan ook voor deze doeleinden worden gebruikt.
 
 \section{Automatisch deployen}
 
