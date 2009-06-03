@@ -1,0 +1,35 @@
+\chapter{Implementatie}
+
+In het adviesrapport zijn een vijftal adviezen opgesteld, wat volgt is uitleg over hoe deze zijn uitgewerkt bij Fullmoon.
+
+\section{SCM Systeem}
+
+\subsection{Keuze}
+
+Voor Fullmoon is de keuze van het {\sc scm} gevallen op Subversion. Één van de uitgangspunten van het project was dat de nieuwe situatie te gebruiken moest zijn voor alle werknemers. Het moest dus een niet te ingrijpende verandering zijn. Omdat het een diverse groep is van designers, programmeurs en projectmanagers, waarbij niet iedereen zich even op het gemak voelt met de commandline, is er gekozen voor Subversion. Het grote aanbod aan (grafische) tools gaf hierbij de doorslag.
+
+\subsection{Uitwerking}
+
+Bij Fullmoon zijn presentaties en uitleg gegeven over het werken met Subversion in het programma SmartSVN. Maar de werknemers zijn in principe vrij om het programma te gebruiken dat ze willen.
+
+Er is een server in gebruik genomen om de Subversion repository te hosten. Hier wordt ook door middel van \emph{post-commit hooks} automatisch elk project geupdate. Zo is er een centrale plek waar iedereen de laatste versie van het project kan bekijken om deze eventueel te testen. Ook is dit handig om snel een website te kunnen bekijken zonder alles binnen te hoeven halen.
+
+\subsection{Koppeling}
+
+Naast het feit dat elke werknemer nu werkt met Subversion komt het ook nog in andere gebieden terug. Zo worden verschillende omgevingen geupdate met Subversion via Capistrano en is er een centrale website ingericht om de activiteit van projecten te kunnen bekijken. Dit is na te lezen in respectievelijk sectie 2.2 en 2.4.
+
+\section{Ontwikkelstraat}
+
+4 gescheiden omgevingen, maakt gebruik van SVN om bepaalde omgevingen te draaien.
+
+\section{Backup}
+
+
+
+\section{Ticketsysteem}
+
+Redmine waar een overzicht te zien is van alle projecten en waar activiteit bekeken kan worden, tickets etc.
+
+\section{Automatisch deployen}
+
+Capistrano dat gebruikt maakt van SVN en code naar alle omgevingen kan deployen.
