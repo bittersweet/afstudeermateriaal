@@ -1,0 +1,53 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{fontspec}
+
+% Fonts
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont [Ligatures={Common},Numbers={OldStyle}]{Adobe Caslon Pro}
+\setmonofont[Scale=0.8]{Monaco} 
+\setsansfont[Scale=0.9]{Optima Regular}
+
+\usepackage[latin1]{inputenc}
+
+% Headings
+\usepackage{sectsty} 
+\usepackage[normalem]{ulem} 
+\sectionfont{\rmfamily\mdseries\Large} 
+\subsectionfont{\rmfamily\mdseries\scshape\normalsize} 
+\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize} 
+
+% PDF Setup
+\usepackage[dvipdfm, bookmarks, colorlinks, breaklinks, pdftitle={},pdfauthor={Mark Mulder}]{hyperref}  
+\hypersetup{linkcolor=black,citecolor=blue,filecolor=black,urlcolor=black}
+
+% Number pages on the bottom
+\pagestyle{plain}
+
+% Use Dutch language so we get correct hyphenation
+\usepackage[dutch]{babel}
+\selectlanguage{dutch}
+
+\begin{document}
+
+  \thispagestyle{empty}
+
+  \begin{flushleft}
+
+    \Huge
+    Projectverslag\\
+
+    \vfill{}
+
+    \small
+    Mark M. Mulder (2009) \\
+    Afstudeerproject Interactieve Media aan de Hogeschool van Amsterdam
+    \\\emph{Rights reserved}.  \href{http://creativecommons.org/licenses/by-nc-nd/3.0/nl/}{\textsc{cc-by-nc-nd}}
+
+  \end{flushleft}
+  \pagebreak
+  \normalsize
+  
+  \section{}
+
+
+\end{document}
