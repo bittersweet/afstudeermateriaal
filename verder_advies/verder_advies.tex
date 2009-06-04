@@ -21,7 +21,12 @@
 \hypersetup{linkcolor=black,citecolor=blue,filecolor=black,urlcolor=blue}
 
 % Number pages on the bottom
-\pagestyle{plain}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[CO,CE]{Mark Mulder (2009) --- \href{http://ikbenbitterzoet.com}{ikbenbitterzoet.com}}
 
 % Use Dutch language so we get correct hyphenation
 \usepackage[dutch]{babel}
