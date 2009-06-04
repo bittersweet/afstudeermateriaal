@@ -1,0 +1,88 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{fontspec}
+
+% Fonts
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont [Ligatures={Common},Numbers={OldStyle}]{Adobe Caslon Pro}
+\setmonofont[Scale=0.8]{Monaco} 
+\setsansfont[Scale=0.9]{Optima Regular}
+
+\usepackage[latin1]{inputenc}
+
+% Headings
+\usepackage{sectsty} 
+\usepackage[normalem]{ulem} 
+\sectionfont{\rmfamily\mdseries\Large} 
+\subsectionfont{\rmfamily\mdseries\scshape\normalsize} 
+\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize} 
+
+% PDF Setup
+\usepackage[dvipdfm, bookmarks, colorlinks, breaklinks, pdftitle={Projectverslag},pdfauthor={Mark Mulder}]{hyperref}  
+\hypersetup{linkcolor=black,citecolor=blue,filecolor=black,urlcolor=blue}
+
+% Number pages on the bottom
+\pagestyle{plain}
+
+% Use Dutch language so we get correct hyphenation
+\usepackage[dutch]{babel}
+\selectlanguage{dutch}
+
+\begin{document}
+
+\section*{Hoe verder?}
+
+Na het lezen van het adviesdocument heeft u waarschijnlijk de smaak te pakken. Naast de technische infrastructuur is er nog een heel gebied waarop een bedrijf moet letten om goed samen te kunnen werken en het werk op een professioneel niveau te houden. In dit artikel komen een aantal onderwerpen aan bod om hierbij te helpen.
+
+\section{Afspraken voor samenwerking}
+
+Als er met veel mensen aan dezelfde projecten gewerkt gaat worden krijgt men te maken met de persoonlijkheden van medewerkers. Iedereen heeft namelijk zijn eigen manier van werken. Als u in de broncode kijkt van een bepaald project waaraan meerdere mensen hebben gewerkt en dit ziet er uit als een mengelmoesje, dan is het van belang om afspraken te maken.
+
+\subsection{Codestyle}
+
+Zorg er voor dat iedereen op dezelfde manier programmeert. Iedereen moet bijvoorbeeld dezelfde manier van indentatie gebruiken, dus maak een keuze tussen tabs of spaties, en hoeveel. Ook naamgeving van variabelen en functies is belangrijk, dit gebeurd het liefste via een vast schema zodat je nooit hoeft te raden waar een bepaalde variabele voor staat.
+
+Neem een kijkje bij de styleguide van \href{http://www.python.org/dev/peps/pep-0008/}{Python} om een idee te krijgen hoe zoiets er uit zou kunnen zien.
+
+\subsection{Framework}
+
+Om het samenwerken en de consistentie te verbeteren, kan gebruik gemaakt worden van een framework. Hierin wordt basisfunctionaliteit uit handen genomen dus niet iedereen hoeft bijvoorbeeld zijn eigen functies te schrijven, er kan gebruik gemaakt worden van de ingebouwde functionaliteit van het framework. Ook nodigt een framework de gebruiker er van uit om op een bepaalde manier te werken, als iedereen dit volgt zal alles ook een stuk overzichtelijker worden.
+
+Ook baseren de meeste frameworks zich op de MVC structuur, wat staat voor model, view, controller. Dit zorgt voor een scheiding tussen de business logica en user interface van een website. Zo wordt het bijvoorbeeld gemakkelijker om visuele gedeelte aan te passen zonder daarbij andere gedeeltes aan te tasten.
+
+\section{Ontwikkelmodel}
+
+De meeste bedrijven maken gebruik van het zogenaamde \emph{waterfall} model, hierbij doorloopt een project verschillende fases. Dit gaat van Conception, Initiation, Analysis, Design, Construction, Testing naar Maintenance. Een vrij lineair proces dus, waarbij elke fase een deliverable kan hebben als ontwerpspecificaties en designstudies. Het waterfall model maakt het moeilijk een project op te delen, er moeten dus vrij vroeg zaken vastgelegd worden, waarbij het moeilijk is om in te spelen op veranderingen in eisen. Dit alles maakt het ongeschikt voor een project waar de eisen niet helemaal duidelijk zijn of waarbij deze waarschijnlijk gaan veranderen in de loop van een project.
+
+Een bedrijf kan ook gebruik maken van een \emph{agile} ontwikkelmethode. Deze heeft als doel om elke paar weken compleet afgewerkte en geteste features op te leveren. De nadruk ligt op het vroeg mogelijk bereiken van \emph{business value} door het kleinste functionele deel op te leveren. Er kan dus al snel iets online komen te staan voor de klant. Door snel en continu te leveren maak je je klant blij en heb je ook een goed instrument om de voortgang te meten. Hiernaast kan je snel reageren op wijzigingen doordat je jezelf niet vastlegt op een vooraf gesteld plan.
+
+De keuze voor een plan gedreven project of eentje die gebaseerd is op een Agile methode hangt af van de omstandigheden. Barry Boehm en Richard Turner\cite{agilebook} suggereren het volgende:
+
+Agile:
+\begin{itemize}
+  \item Low criticality
+  \item Senior developers
+  \item Requirements change often
+  \item Small number of developers
+  \item Culture that drives on chaos
+\end{itemize}
+
+Plan-driven:
+\begin{itemize}
+  \item High criticality
+  \item Junior developers
+  \item Requirements don't change too often
+  \item Large number of developers
+  \item Culture that demands order
+\end{itemize}
+
+
+
+\section{Archivering}
+
+bla
+
+
+\bibliographystyle{h-physrev3}
+\bibliography{bronnen}
+
+\end{document}
