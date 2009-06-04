@@ -22,15 +22,17 @@ Naast het feit dat elke werknemer nu werkt met Subversion komt het ook nog in an
 
 In het begin maakte Fullmoon gebruik van twee verschillende omgevingen, één interne webserver waar op ontwikkeld werd en een externe server waar alle sites op draaiden. Dat aantal is vergroot naar vier door een acceptatie- en testomgeving toe te voegen. De huidige situatie is dus in de vorm van een OTAP-straat\footnote{ontwikkel, test, acceptatie en productie}. Er wordt niet voor elk project gebruik gemaakt van de acceptatie server maar in principe gaat nieuwe code 3 omgevingen door voor het online komt te staan.
 
-Het werken op de interne webserver is ook veranderd, door middel van Subversion werkt elke medewerker nu op zijn eigen computer. Zo kan iedereen individueel werken aan projecten zonder dat ze elkaar hierbij in de weg zitten. Door middel van Subversion zijn de wijzigingen van anderen uiteraard nog wel binnen te halen.
+De ontwikkelomgeving is verplaats van de centrale server naar de workstations van de medewerkers zelf. Door middel van Subversion werkt iedereen nu op zijn eigen computer. Zo kan iedereen individueel werken aan projecten zonder dat ze elkaar hierbij in de weg zitten. Door middel van Subversion zijn de wijzigingen van anderen uiteraard nog wel binnen te halen.
 
-Zoals vermeld in 2.1.2 wordt de testomgeving automatisch geupdate in navolging van een commit. Hier kan een project intern getest worden door alle werknemers.
+Zoals vermeld in 2.1.2 wordt de testomgeving automatisch geupdate in navolging van een commit. Hier kan een project intern getest worden door alle werknemers. Omdat niet iedereen binnen Fullmoon direct aan projecten werkt, kunnen deze personen van deze omgeving gebruik maken om projecten te kunnen bekijken zonder dat ze deze zelf op hun computer moeten binnenhalen.
 
 De acceptatieomgeving is ook een interne webserver die bereikbaar is voor aan de buitenwereld door middel van een gebruikersnaam en wachtwoord. Door middel van Subversion wordt een bepaalde versie van het project een \emph{tag} gegeven, zodat de acceptatieomgeving de website kan tonen op basis van deze tag. Zo kan er verder gewerkt worden aan het project terwijl de klant wel een goede versie te zien krijgt om wijzigingen goed te keuren.
 
 \section{Backup}
 
+Bij Fullmoon is de backupsituatie al vrij goed geregeld. Intern worden van alle servers dagelijks een backup gemaakt die bewaard wordt op een externe hardeschijf. Online verzorgd de hostingprovider elke nacht een backup. Deze worden een maand lang door hun bewaard op een externe locatie, terwijl de backups ook bereikbaar zijn op de server zelf. Dit is handig om bijvoorbeeld een database te herstellen mocht er iets fout mee gegaan zijn.
 
+Qua backup heb ik bij Fullmoon weinig werk verricht, de situatie is op zich al heel goed. Alleen is bij een rampsituatie als degene die ik in het adviesrapport aanhaalde nog steeds mogelijk, bij een brand gaat alle data verloren. Daarom wil ik Fullmoon zo ver krijgen hun eigen backups ook offsite bewaren, maar daarover zijn we nog aan het overleggen. 
 
 \section{Ticketsysteem}
 
