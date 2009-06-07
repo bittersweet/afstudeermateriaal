@@ -50,10 +50,20 @@ In samenwerking met Subversion bied Capistrano ook de mogelijkheid om snel na te
 
 \section{Vergelijking oude en nieuwe situatie}
 
-\includegraphics[scale=0.75]{situatie_oud.png}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.70]{situatie_oud.png}
+  \caption[Oude situatie.]{De oude werksituatie bij Fullmoon.}
+\end{figure}
 
-De oude situatie.
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.70]{situatie_nieuw.png}
+  \caption[Nieuwe situatie.]{De nieuwe situatie.}
+\end{figure}
 
-\includegraphics[scale=0.75]{situatie_nieuw.png}
+In figuren 2.1 en 2.2 zijn respectievelijk de oude en nieuwe werksituatie bij Fullmoon grafisch uitgewerkt, een kleine uitleg.
 
-De nieuwe situatie.
+In de oude situatie werkte elke medewerker direct op de centrale ontwikkelserver waarbij iedereen dezelfde bestanden open had. Soms werd er ook direct op de online server gewerkt, waardoor er verschillen ontstonden.
+
+In de nieuwe situatie werkt elke medewerker individueel op zijn eigen computer door middel van Subversion (SVN). De ontwikkel omgeving in dit figuur bestaat dus eigenlijk uit de computers van alle medewerkers. Wijzigingen gaan de test- en acceptatieomgevingen door alvorens deze online komen te staan. Er worden alleen bestanden aangepast in de ontwikkel omgeving, zodat er nooit verschillende versies onstaan doordat iemand online wat aangepast heeft.
