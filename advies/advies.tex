@@ -18,7 +18,7 @@
 
 % PDF Setup
 \usepackage[dvipdfm, bookmarks, colorlinks, breaklinks, pdftitle={Adviezen voor professioneler werken in webdevelopment bureaus},pdfauthor={Mark Mulder}]{hyperref}  
-\hypersetup{linkcolor=black,citecolor=blue,filecolor=black,urlcolor=black}
+\hypersetup{linkcolor=black,citecolor=blue,filecolor=black,urlcolor=blue}
 
 % Number pages on the bottom
 \pagestyle{plain}
@@ -35,7 +35,6 @@
     \include{voorwoord}
     \tableofcontents
 
-    \pagenumbering{arabic}
     \include{introduction}
     \include{eisen_professionaliteit}
     \include{advies_professionaliteit}
@@ -47,5 +46,7 @@
     \bibliographystyle{h-physrev3}
     \bibliography{bronnen}
     \nocite{*}
+    
+    \include{bijlagen}
 
 \end{document}

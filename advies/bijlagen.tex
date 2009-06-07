@@ -1,0 +1,58 @@
+\chapter{Bijlagen}
+% \addcontentsline{toc}{chapter}{Bijlagen}
+
+\section{Capistrano}
+
+Hier is het recept terug te vinden wat bij Fullmoon gebruikt wordt om php applicaties naar de acceptatie en productie omgevingen te deployen.
+
+Omdat dit niet echt prettig leest is er op deze \href{http://www.ikbenbitterzoet.com/weblog/afstudeer/}{http://www.ikbenbitterzoet.com/weblog/afstudeer/} website een zipfile te vinden die alle bestanden bevat.
+
+\begin{verbatim}
+  require 'capistrano/ext/multistage'
+
+  set :application, "APPLICATIE"
+  set :user, "USER"
+  set :repository,  "REPOSITORY"
+  set :deploy_to, "/usr/local/wwwroot/#{application}"
+  set :deploy_via, "remote_cache"
+
+  ssh_options[:forward_agent] = true
+  ssh_options[:username] = "SSHUSER"
+  set :use_sudo, false
+
+  set :default_stage, "production"
+  set :stages, %w(production staging)
+
+  namespace :deploy do
+
+    # launch the following task after updating the code
+    after "deploy:update_code", "deploy:link_settings"
+
+    desc "Link the settings file to the release directory"
+    task :link_settings do
+      run "ln -nfs #{deploy_to}/shared/xsettings/settings.php #{release_path}/xsettings/settings.php"
+    end
+
+    [:start, :stop].each do |t|
+      desc "#{t} task is not necessary with PHP"
+      task t, :roles => :app do ; end
+    end
+  end
+  
+\end{verbatim}
+
+\section{Backup script}
+
+Dit is een voorbeeld van een backup script wat elke avond gedraaid kan worden om een backup van alle databases te maken waarna deze gelijk naar S3 verstuurd worden.
+
+\begin{verbatim}
+  
+  #!/bin/bash
+
+  BACKUP_DIR="$(date +%F)"
+
+  mysqldump -u USERNAME -pWACHTWOORD --all-databases | gzip > $BACKUP_DIR.sql.gz
+
+  /Users/markmulder/backup/s3sync/s3sync.rb --recursive $BACKUP_DIR dnd_backup
+  
+\end{verbatim}

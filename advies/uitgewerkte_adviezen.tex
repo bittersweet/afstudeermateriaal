@@ -56,7 +56,7 @@ De ontwikkelomgeving bevindt zich op de computers van de medewerkers zelf dus da
 
 De testomgeving is een interne webserver die een bepaalde versie van het project draait, zodat iedereen die daar kan testen. Bij kleine bedrijven kan dit een beetje overkill zijn, maar voor grotere bedrijven waar bepaalde mensen verantwoordelijk zijn voor het testen en QA (Quality Assurance) kan het erg handig zijn.
 
-De acceptatieomgeving is een afgeschermde webserver die wel toegankelijk is voor door de klant. Deze kan hierop een bepaalde versie van het project bekijken en hier feedback op geven. Wanneer iemand bijvoorbeeld de taak heeft gekregen om nieuwe functionaliteit aan een website toe te voegen is het van belang dat de gebruiker deze pas ziet wanneer het helemaal klaar en goedgekeurd is. Het is tamelijk onprofessioneel als bezoekers een niet werkende site te zien krijgen, omdat er live aan gewerkt wordt.
+De acceptatieomgeving is een afgeschermde webserver die wel toegankelijk is voor de klant. Deze kan hierop een bepaalde versie van het project bekijken en hier feedback op geven. Wanneer iemand bijvoorbeeld de taak heeft gekregen om nieuwe functionaliteit aan een website toe te voegen is het van belang dat de gebruiker deze pas ziet wanneer het helemaal klaar en goedgekeurd is. Het is tamelijk onprofessioneel als bezoekers een niet werkende site te zien krijgen, omdat er live aan gewerkt wordt.
 
 Ten slotte heb je de productieomgeving: de live website, dit spreekt voor zich.
 
@@ -131,6 +131,6 @@ Met behulp van de Capistrano Multistage plugin\cite{capistranomultistage} kan me
   \texttt{cap acceptatie deploy}
 \end{quote}
 
-In de bijlagen is het recept te vinden dat nu gebruikt wordt bij Fullmoon om hun PHP applicaties succesvol te kunnen deployen en een link naar een goede tutorial om met Capistrano aan de slag te gaan.
+In de bijlagen is het recept te vinden dat nu gebruikt wordt bij Fullmoon om hun PHP applicaties succesvol naar verschillende omgevingen te kunnen deployen.
 
 \paragraph{Advies:} Er wordt aangeraden om gebruik te maken van Capistrano om het deployen van code in verschillende omgevingen te vergemakkelijken.
