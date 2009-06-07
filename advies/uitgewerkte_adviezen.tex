@@ -36,31 +36,32 @@ Wanneer je alleen naar de gedistribueerde pakketten bekijkt is er een aantal voo
 
 \paragraph{Advies:} Als men niet wordt afgeschrikt door de commandline wordt aangeraden gebruik te maken van Git. Maakt men liever gebruik van een goede grafische tool dan kan men het beste voor Subversion kiezen.
 
-\section{Gescheiden werken}
+\section{Ontwikkelstraat}
 
-Aangezien iedereen aangeraden wordt om gebruik te maken van een {\sc scm} systeem, zal het ontwikkelen plaats moeten vinden op de eigen computer, dus niet op een centrale server. Hierdoor kan iedereen individueel werken, zonder dat collega's last van elkaar ondervinden doordat ze aan hetzelfde project bezig zijn.
+De meeste bedrijven zullen hopelijk al gebruik maken van twee ontwikkelomgevingen, een waarin men zelf werkt en de live website, die bezoekers te zien krijgen. In een professionele situatie zal dit uitgebreid moeten worden naar het liefst vier verschillende omgevingen, ontwikkeling, test, acceptatie en productie, oftewel de al eerder genoemde OTAP-straat. 
+
+\subsection{Ontwikkeling}
+
+Als een bedrijf gebruik maakt van één centrale server in de ontwikkelomgeving is het van belang dat deze situatie veranderd naar één waarin de werknemers ontwikkelen op hun eigen computers. Dit om gebruik te kunnen maken van een {\sc scm} systeem. Op deze manier kan iedereen individueel werken, zonder dat ze last van elkaar ondervinden doordat ze aan hetzelfde project bezig zijn.
 
 In de ontwikkelfase, wanneer mensen bijvoorbeeld schermschetsen en HTML pagina's gaan maken zal dit nog niet veel veranderen aan de workflow. Maar op het moment dat er een website geprogrammeerd moet worden zal het in de meeste gevallen nodig zijn om lokaal ook een webserver te draaien. 
 
-Omdat er veel diversiteit is in programmeertalen en operating systems, is het onbegonnen werk om hier alle manieren te vermelden om dit te bereiken, maar er is wel iets waar op gelet moet worden. Zorg er voor dat alle versies van software die op de servers en workstations draaien overeen komen. Stel dat een bug in een website opgelost moet worden, als de workstations een afwijkende versie draaien van bijvoorbeeld de webserver waarin deze bug niet voor kan komen wordt het moeilijk om deze op te lossen.
+Omdat er veel diversiteit is in programmeertalen en operating systems, is het onbegonnen werk om hier alle manieren te vermelden om dit te bereiken, maar er is wel iets waar op gelet moet worden. Zorg er voor dat alle versies van software die op de servers en workstations draaien overeen komen. Het gaat hierbij dan om zaken als de web- en databaseserver en bijvoorbeeld PHP. Stel dat een bug in een website opgelost moet worden, als de workstations een afwijkende versie draaien van bijvoorbeeld de webserver -- waarin deze bug niet voor kan komen -- wordt het moeilijk om deze op te lossen.
 
-\paragraph{Advies:} Verplaats het ontwikkelen van een centrale server naar de workstations zodat iedereen onafhankelijk kan werken, maar zorg er hierbij voor dat software versies overeen komen.
+\subsection{Test}
 
-\section{Ontwikkelstraat}
+De testomgeving is een interne webserver die een bepaalde versie van het project draait, zodat iedereen deze daar kan testen. Dit vormt ook een centrale plek om projecten te kunnen bekijken zodat je niet alles hoeft binnen te halen, wat vooral handig is voor mensen die niet direct met het project te maken hebben.
 
-De meeste bedrijven zullen hopelijk al gebruik maken van twee ontwikkelomgevingen, een waarin men zelf werkt en de live website, die bezoekers te zien krijgen.
+Voor kleine bedrijven kan een specifieke testomgeving een beetje overkill vormen, maar voor grotere bedrijven waar bepaalde mensen verantwoordelijk zijn voor het testen en QA (Quality Assurance) kan het erg handig zijn.
 
-In de ideale situatie gaat een project vier verschillende omgevingen door, namelijk: ontwikkeling, test, acceptatie en productie, oftewel de al eerder genoemde OTAP-straat. 
-
-De ontwikkelomgeving bevindt zich op de computers van de medewerkers zelf dus daar hoeft weinig over verteld te worden, maar de andere omgevingen behoeven nog wat uitleg.
-
-De testomgeving is een interne webserver die een bepaalde versie van het project draait, zodat iedereen die daar kan testen. Bij kleine bedrijven kan dit een beetje overkill zijn, maar voor grotere bedrijven waar bepaalde mensen verantwoordelijk zijn voor het testen en QA (Quality Assurance) kan het erg handig zijn.
+\subsection{Acceptatie}
 
 De acceptatieomgeving is een afgeschermde webserver die wel toegankelijk is voor de klant. Deze kan hierop een bepaalde versie van het project bekijken en hier feedback op geven. Wanneer iemand bijvoorbeeld de taak heeft gekregen om nieuwe functionaliteit aan een website toe te voegen is het van belang dat de gebruiker deze pas ziet wanneer het helemaal klaar en goedgekeurd is. Het is tamelijk onprofessioneel als bezoekers een niet werkende site te zien krijgen, omdat er live aan gewerkt wordt.
 
+\subsection{Productie}
 Ten slotte heb je de productieomgeving: de live website, dit spreekt voor zich.
 
-\paragraph{Advies:} Maak gebruik van meerdere ontwikkelomgevingen, zodat de klant in een project betrokken kan worden en bezoekers van de website geen hinder ondervinden van de werkzaamheden.
+\paragraph{Advies:} Maak gebruik van meerdere ontwikkelomgevingen, zodat de klant in een project betrokken kan worden en bezoekers van de website geen hinder ondervinden van de werkzaamheden. Let er hierbij op dat belangrijke softwareversies overeen komen in de verschillende omgevingen.
 
 \section{Backup}
 
