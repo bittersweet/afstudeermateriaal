@@ -5,7 +5,9 @@
 
 Hier is het recept terug te vinden wat bij Fullmoon gebruikt wordt om php applicaties naar de acceptatie en productie omgevingen te deployen.
 
-Omdat dit niet echt prettig leest is er op deze \href{http://www.ikbenbitterzoet.com/weblog/afstudeer/}{http://www.ikbenbitterzoet.com/weblog/afstudeer/} website een zipfile te vinden die alle bestanden bevat.
+Op \href{http://www.ikbenbitterzoet.com/weblog/afstudeer/}{http://www.ikbenbitterzoet.com/weblog/afstudeer/} is een zipbestand terug te vinden welke alle bestanden die hier vermeld worden bevat.
+
+\paragraph{config/deploy.rb}
 
 \begin{verbatim}
   require 'capistrano/ext/multistage'
@@ -30,7 +32,8 @@ Omdat dit niet echt prettig leest is er op deze \href{http://www.ikbenbitterzoet
 
     desc "Link the settings file to the release directory"
     task :link_settings do
-      run "ln -nfs #{deploy_to}/shared/xsettings/settings.php #{release_path}/xsettings/settings.php"
+      run "ln -nfs #{deploy_to}/shared/xsettings/settings.php \
+      #{release_path}/xsettings/settings.php"
     end
 
     [:start, :stop].each do |t|
@@ -48,11 +51,16 @@ Dit is een voorbeeld van een backup script wat elke avond gedraaid kan worden om
 \begin{verbatim}
   
   #!/bin/bash
+  
+  USERNAME=""
+  PASSWORD=""
+  
+  S3_BUCKET=""
 
   BACKUP_DIR="$(date +%F)"
 
-  mysqldump -u USERNAME -pWACHTWOORD --all-databases | gzip > $BACKUP_DIR.sql.gz
+  mysqldump -u $USERNAME -p$PASSWORD --all-databases | gzip > $BACKUP_DIR.sql.gz
 
-  /Users/markmulder/backup/s3sync/s3sync.rb --recursive $BACKUP_DIR dnd_backup
+  /Users/markmulder/backup/s3sync/s3sync.rb --recursive $BACKUP_DIR $S3_BUCKET
   
 \end{verbatim}
