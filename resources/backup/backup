@@ -1,0 +1,12 @@
+#!/bin/bash
+
+USERNAME=""
+PASSWORD=""
+
+S3_BUCKET=""
+
+BACKUP_DIR="$(date +%F)"
+
+mysqldump -u $USERNAME -p$PASSWORD --all-databases | gzip > $BACKUP_DIR.sql.gz
+
+/Users/markmulder/backup/s3sync/s3sync.rb --recursive $BACKUP_DIR $S3_BUCKET

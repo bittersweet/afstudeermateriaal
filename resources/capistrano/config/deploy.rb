@@ -1,4 +1,3 @@
-# require multistage plugin
 require 'capistrano/ext/multistage'
 
 set :application, "APPLICATIE"
