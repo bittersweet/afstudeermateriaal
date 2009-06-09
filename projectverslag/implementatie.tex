@@ -30,23 +30,23 @@ De acceptatieomgeving is ook een interne webserver die afgeschermd is voor de bu
 
 \section{Backup}
 
-Bij Fullmoon is de backupsituatie al vrij goed geregeld. Intern worden van alle servers dagelijks een backup gemaakt die bewaard wordt op een externe hardeschijf. Online verzorgd de hostingprovider elke nacht een backup, welke een maand lang worden bewaard op een externe locatie. Deze blijven ook op de server zelf beschikbaar, dit is handig om bijvoorbeeld een database te herstellen mocht er iets fout mee gegaan zijn.
+Bij Fullmoon was de backupsituatie al vrij goed geregeld. Intern worden van alle servers dagelijks backups gemaakt die bewaard worden op een externe hardeschijf. Online verzorgd de hostingprovider elke nacht de backups, die blijven een maand lang bewaard op een externe locatie maar blijven ook op de server zelf beschikbaar. Dit is handig om bijvoorbeeld snel een database te kunnen herstellen mocht er iets fout mee gegaan zijn.
 
-Voor dit onderdeel heb ik weinig kunnen betekenen voor Fullmoon, de situatie was al ruim voldoende ingericht. Alleen is een rampsituatie als degene die ik in het adviesrapport aanhaalde nog steeds mogelijk, bij een brand gaat alle data verloren. Daarom probeer ik nog te adviseren deze backups ook offsite te bewaren, maar daarover zijn we nog in overleg.
+Voor dit onderdeel heb ik weinig kunnen betekenen voor Fullmoon, omdat de situatie al ruim voldoende was ingericht. Alleen bij een calamiteit, zoals bij brand waar ik in het adviesrapport over heb gesproken, is het risico dat alle data verloren gaat nog steeds aanwezig. Daarom adviseer ik nadrukkelijk om deze backups niet op kantoor te bewaren, maar bij voorkeur offsite, dus op een andere lokatie. Over deze oplossing zijn we nog in overleg.
 
 \section{Ticketsysteem}
 
 Na vele systemen uitgeprobeerd te hebben is de keuze gevallen op Redmine. Deze sloot nauw aan bij de wensen van Fullmoon. Zo moest er een centrale plek komen waar de status van projecten te bekijken was, zowel issues als wijzigingen in de code.
 
-Fullmoon gebruikt het om het moment alleen intern, ze leveren sinds kort wel support voor de klant met behulp van een ticketsysteem maar dat staat los van Redmine. Mail naar een support adres wordt opgevangen door dit systeem waarna klanten verdere correspondentie en updates ook via de website kunnen raadplegen. In de toekomst zal nog geëvalueerd worden of die scheiding gunstig is want Redmine kan ook voor deze doeleinden worden gebruikt.
+Fullmoon gebruikt dit systeem op het moment alleen intern. Men levert sinds kort wel support aan de klant door middel van een ander ticketsysteen, maar dat staat los van Redmine. Mail naar een support-adres wordt door dit systeem opgevangen, waarna klanten verdere correspondentie en updates ook via de bijbehorende support-website kunnen raadplegen. In de toekomst zal nog geëvalueerd worden of het gebruik van twee systemen naast elkaar wel effectief is, aangezien Redmine voor beide doeleinden kan worden gebruikt.
 
 \section{Automatisch deployen}
 
-Om code naar verschillende omgevingen toe te sturen wordt gebruik gemaakt van Capistrano in combinatie met de in het advies genoemde multistage plugin. Zo kan met één enkel commando code vanuit de Subversion repository naar de gewenste omgeving gestuurd worden.
+Om code naar verschillende omgevingen toe te sturen wordt gebruik gemaakt van Capistrano, in combinatie met de in het advies genoemde multistage plugin. Zo kan met één enkel commando code vanuit de Subversion repository naar de gewenste omgeving gestuurd worden.
 
-Voordat hier gebruik gemaakt van werd ging het updaten van websites niet altijd even goed. Als meerdere mensen lang aan iets gewerkt hadden was het niet meer goed duidelijk wat nou precies veranderd was en wat er nodig was om up te loaden. Zo kwam het voor dat sommige functionaliteit niet goed werkte omdat er een bestand mistte, of dat het verkeerde bestand was geupload. Nu worden sites zonder gevaar en moeite geupdate, en is het een snel klusje geworden waar niet meer naar omgekeken hoeft te worden.
+Voordat hier gebruik van werd gemaakt ging het updaten van websites niet altijd even goed. Wanneer door meerdere personen lang aan een opdracht was gewerkt, was het vaak onduidelijk wat nou precies was gewijzigd en wat geupload moest worden. Zo kwam het regelmatig voor dat sommige functies niet goed werkten, omdat er een bepaald bestand ontbrak of dat het verkeerde bestand was geupload. Nu worden sites zonder gevaar en moeite geupdate, en is het een tamelijk eenvoudige handeling geworden, waar niet meer naar omgekeken hoeft te worden.
 
-In samenwerking met Subversion bied Capistrano ook de mogelijkheid om snel na te gaan welke versie van een project online staat. Voordat gebruik werd gemaakt van Subversion was het giswerk wat er allemaal online stond, nu kan je direct zien vanaf welke revisie een website draait.
+Door de samenwerking met Subversion biedt Capistrano ook de mogelijkheid om eenvoudig na te gaan welke versie van een project online staat. Voordat hiervan gebruik gemaakt kon worden was het giswerk wat er allemaal online stond, maar nu is direct zichtbaar vanaf welke revisie een website draait. 
 
 \section{Vergelijking oude en nieuwe situatie}
 
@@ -62,8 +62,8 @@ In samenwerking met Subversion bied Capistrano ook de mogelijkheid om snel na te
   \caption[Nieuwe situatie.]{De nieuwe situatie.}
 \end{figure}
 
-In figuren 2.1 en 2.2 zijn respectievelijk de oude en nieuwe werksituatie bij Fullmoon grafisch uitgewerkt, een kleine uitleg.
+In figuren 2.1 en 2.2 zijn respectievelijk de oude en nieuwe werksituatie bij Fullmoon grafisch uitgewerkt, ik geef hierover een kleine uitleg.
 
-In de oude situatie werkte elke medewerker direct op de centrale ontwikkelserver waarbij iedereen dezelfde bestanden open had. Soms werd er ook direct op de online server gewerkt, waardoor er verschillen ontstonden.
+In de oude situatie werkte iedere medewerker via de eigen computer direct op de centrale ontwikkelserver, waarbij men vaak dezelfde bestanden open had staan. Soms werd er ook direct gewerkt op de onlineserver, waardoor er natuurlijk verschillen ontstonden.
 
-In de nieuwe situatie werkt elke medewerker individueel op zijn eigen computer door middel van Subversion (SVN). De ontwikkel omgeving in dit figuur bestaat dus eigenlijk uit de computers van alle medewerkers. Wijzigingen gaan de test- en acceptatieomgevingen door alvorens deze online komen te staan. Er worden alleen bestanden aangepast in de ontwikkel omgeving, zodat er nooit verschillende versies onstaan doordat iemand online wat aangepast heeft.
+In de nieuwe situatie werkt men op zijn eigen computer met gebruikmaking van Subversion (SVN). De ontwikkelomgeving in dit figuur bestaat dus in feite uit de computers van alle medewerkers. Wijzigingen gaan eerst de test- en acceptatieomgevingen door, voordat deze online komen te staan. Er worden dus alleen bestanden aangepast in de ontwikkelomgeving, zodat er nooit verschillende versies onstaan omdat iemand online wat heeft aangepast.
