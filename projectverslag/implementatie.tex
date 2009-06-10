@@ -1,32 +1,34 @@
 \chapter{Implementatie}
 
-In het adviesrapport zijn een vijftal adviezen opgesteld, deze komen punt voor punt aan bod zodat na te gaan is wat er precies gebeurd is bij Fullmoon.
+In het adviesrapport zijn een vijftal adviezen opgesteld, die ik puntsgewijs behandel, zodat een goed beeld wordt verkregen van wat er gebeurd is bij Fullmoon.
 
 \section{SCM Systeem}
 
 \subsection{Keuze}
 
-Voor Fullmoon is de keuze van het {\sc scm} systeem gevallen op Subversion. Één van de uitgangspunten van het project was dat de nieuwe situatie te gebruiken moest zijn voor alle werknemers. Het moest dus een niet te ingrijpende verandering vormen. Omdat het een diverse groep is van designers, programmeurs en projectmanagers, waarbij niet iedereen zich even op het gemak voelt met de commandline, is er gekozen voor Subversion. Het grote aanbod aan (grafische) tools gaf hierbij de doorslag.
+Bij het selecteren van het voor Fullmoon meest geschikte {\sc scm} systeem, hebben we rekening gehouden met meerdere eisen. Zo was één van de uitgangspunten dat de nieuwe situatie eenvoudig werkbaar moest zijn voor zowel alle in dienst zijnde medewerkers, als voor nieuwe medewerkers. Het moest dus een niet té ingrijpende verandering veroorzaken.
+
+Omdat het een diverse groep is van designers, programmeurs en projectmanagers, waarbij niet iedereen zich even op het gemak voelt met de commandline, is bij Fullmoon gekozen voor Subversion. Het grote aanbod aan (grafische) tools gaf hierbij de doorslag.
 
 \subsection{Uitwerking}
 
-Bij Fullmoon zijn presentaties en uitleg gegeven over het werken met Subversion door middel van het programma SmartSVN. Maar de werknemers zijn in principe vrij in de keuze voor een programma om met Subversion te werken.
+Bij Fullmoon zijn presentaties en uitleg gegeven over het werken met Subversion door gebruik te maken van het programma SmartSVN. Maar de medewerkers zijn in principe vrij in de keuze voor een programma om met Subversion te werken.
 
-Er is een server in gebruik genomen om de Subversion repository te huisvesten. Op dezelfde server draait ook een webserver waarop alle projecten terug te zien zijn. Door middel van \emph{post-commit hooks} worden deze projecten automatisch geupdate na elke commit. Zo is er een centrale plek waar iedereen de laatste versie van het project kan bekijken om deze eventueel te testen. Ook is dit handig om snel een website te kunnen bekijken zonder alles binnen te hoeven halen.
+Er is een server in gebruik genomen om de Subversion repository te huisvesten. Op dezelfde server draait ook een webserver waarop alle projecten terug te zien zijn. Door middel van \emph{post-commit hooks} worden deze projecten automatisch bijgewerkt na elke commit. Zo is er een centrale plek waar iedereen de laatste versie van het project kan bekijken om deze eventueel te testen. Ook is dit handig om snel een website te kunnen bekijken zonder alles binnen te hoeven halen.
 
 \subsection{Koppeling}
 
-Naast het feit dat elke werknemer nu werkt met Subversion komt het ook nog in andere gebieden terug. Zo wordt er gebruik gemaakt van Subversion om code naar verschillende omgevingen te deployen en is er een centrale website ingericht om de activiteit van projecten te kunnen bekijken. Dit is na te lezen in respectievelijk sectie 2.2 en 2.4.
+Naast het feit dat elke medewerker nu werkt met Subversion komt het ook nog in andere gebieden terug. Zo wordt er gebruik gemaakt van Subversion om code naar verschillende omgevingen te deployen en is er een centrale website ingericht om de activiteit van projecten te kunnen bekijken. Dit is na te lezen in respectievelijk sectie 2.2 en 2.4.
 
 \section{Ontwikkelstraat}
 
-In het begin maakte Fullmoon gebruik van twee verschillende omgevingen, één interne webserver waar op ontwikkeld werd en een externe server waar alle sites op draaiden. Dat aantal is vergroot naar vier door een acceptatie- en testomgeving toe te voegen. De huidige situatie is dus in de vorm van een OTAP-straat\footnote{ontwikkel, test, acceptatie en productie}. Er wordt niet voor elk project gebruik gemaakt van de acceptatie omgeving maar in principe gaat nieuwe code alle drie de omgevingen door voor het online komt te staan.
+Toen ik met mijn stage begon bij Fullmoon werd er gebruik gemaakt van twee verschillende omgevingen, één interne webserver waar op ontwikkeld werd en een externe server waar alle sites op draaiden. Dat aantal is verdubbeld tot vier door een acceptatie- en testomgeving toe te voegen. De huidige situatie is dus in de vorm van een OTAP-straat\footnote{ontwikkel, test, acceptatie en productie}. Er wordt niet voor elk project gebruik gemaakt van de acceptatieomgeving maar in principe gaat nieuwe code alle drie de omgevingen door voor het online komt te staan.
 
-De ontwikkelomgeving is verplaats van de centrale server naar de workstations van de medewerkers zelf. Door middel van Subversion werkt iedereen nu op zijn eigen computer. Zo kan iedereen individueel werken aan projecten zonder dat ze elkaar hierbij in de weg zitten. Door middel van Subversion zijn de wijzigingen van anderen uiteraard nog wel binnen te halen.
+De ontwikkelomgeving is verplaats van de centrale server naar de workstations van de medewerkers zelf. Door middel van Subversion werkt iedereen nu op zijn eigen computer, zodat iedereen individueel kan werken aan projecten zonder elkaar hierbij in de weg zitten. Door middel van Subversion zijn de wijzigingen van anderen uiteraard nog wel binnen te halen.
 
-Zoals vermeld in 2.1.2 wordt de testomgeving automatisch geupdate in navolging van een commit. Hier kan een project intern getest worden door alle werknemers. Omdat niet iedereen binnen Fullmoon direct aan projecten werkt, kunnen deze personen van deze omgeving gebruik maken om projecten te kunnen bekijken zonder dat ze deze zelf op hun computer moeten binnenhalen.
+Zoals vermeld in 2.1.2 wordt de testomgeving automatisch bijgewerkt in navolging van een commit. Hier kan een project intern getest worden door alle medewerkers. Omdat niet iedereen binnen Fullmoon direct aan projecten werkt, kan men van deze omgeving gebruik maken om projecten te kunnen bekijken zonder dat ze deze op hun eigen computer binnen te hoeven halen.
 
-De acceptatieomgeving is ook een interne webserver die afgeschermd is voor de buitenwereld door middel van een gebruikersnaam en wachtwoord. Klanten kunnen hierop inloggen om bijvoorbeeld wijzigingen aan een site te zien voordat deze online komt. Door middel van Subversion wordt een bepaalde versie van het project een \emph{tag} meegegeven, zodat de acceptatieomgeving de website kan tonen op basis van deze tag. Zo kan er verder gewerkt worden aan het project terwijl er controle is over welke versie de klant te zien krijgt om wijzigingen goed te keuren.
+De acceptatieomgeving is ook een interne webserver die afgeschermd is voor de buitenwereld door middel van een gebruikersnaam en wachtwoord. Klanten kunnen hierop inloggen om bijvoorbeeld wijzigingen aan een site te beoordelen voordat deze online komt. Door middel van Subversion wordt een bepaalde versie van het project een \emph{tag} meegegeven, zodat de acceptatieomgeving de website kan tonen op basis van deze tag. Zo kan er verder gewerkt worden aan het project terwijl er controle is over welke versie de klant te zien krijgt om wijzigingen goed te keuren.
 
 \section{Backup}
 
